@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/issues"
   },
-  "homepage": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers#readme"
+  "homepage": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers#readme",
+  "dependencies": {}
 }
