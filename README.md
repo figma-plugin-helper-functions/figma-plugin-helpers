@@ -1,4 +1,4 @@
-# figma-plugin-helpers
+# Figma Plugin Helper functions
 A collection of useful helper functions to import to your Figma plugin project
 
 ### Development
