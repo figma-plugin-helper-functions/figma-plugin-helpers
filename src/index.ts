@@ -1,6 +1,6 @@
 //import all helper functions here
 import getPage from './helpers/getPage'
-import getIndexNode from './helpers/getIndexNode'
+import getIndexNode from './helpers/getNodeIndex'
 import isInstanceNode from './helpers/isInstanceNode'
 import topLevelFrames from './helpers/topLevelFrames'
 
