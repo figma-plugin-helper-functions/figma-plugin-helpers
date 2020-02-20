@@ -5,6 +5,7 @@ import isPartOfInstance from './helpers/isPartOfInstance'
 import topLevelFrames from './helpers/topLevelFrames'
 import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
+import clone from './helpers/clone'
 import {
 	isComponentNode,
 	isFrameNode,
@@ -29,5 +30,6 @@ export {
 	getAllFonts,
 	loadUniqueFonts,
 	isPartOfInstance,
-	isOneOfNodeType
+	isOneOfNodeType,
+	clone, 
 }
