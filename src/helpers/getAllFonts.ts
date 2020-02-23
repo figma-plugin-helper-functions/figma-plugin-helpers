@@ -1,17 +1,17 @@
 //this function returns all used fonts to textNodes
 export default function getAllFonts(textNodes: Array<TextNode>) {
-	let fonts: Array<Font> = []
-	let pushUnique = (font: Font) => {
+	const fonts: Array<Font> = []
+	const pushUnique = (font: Font) => {
 		if (!fonts.some((item) => item.family === font.family && item.style === font.style)) {
 			fonts.push(font)
 		}
 	}
 
-	for (let node of textNodes) {
+	for (const node of textNodes) {
 		if (node.fontName === figma.mixed) {
-			let len = node.characters.length
+			const len = node.characters.length
 			for (let i = 0; i < len; i++) {
-				let font = node.getRangeFontName(i, i + 1) as Font
+				const font = node.getRangeFontName(i, i + 1) as Font
 				pushUnique(font)
 			}
 		} else {

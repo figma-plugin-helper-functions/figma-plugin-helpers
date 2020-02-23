@@ -6,6 +6,7 @@ import topLevelFrames from './helpers/topLevelFrames'
 import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
 import clone from './helpers/clone'
+import getBoundingRect from './helpers/getBoundingRect'
 import {
 	isComponentNode,
 	isFrameNode,
@@ -31,5 +32,6 @@ export {
 	loadUniqueFonts,
 	isPartOfInstance,
 	isOneOfNodeType,
-	clone, 
+	clone,
+	getBoundingRect
 }
