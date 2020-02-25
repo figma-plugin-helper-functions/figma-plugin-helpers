@@ -14,6 +14,15 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 		width: 0
 	}
 
+	// to assemble coordinates
+	function pushXY(node, rez) {
+		const [[, , x], [, , y]] = node.absoluteTransform
+		rez.x.push(x)
+		rez.y.push(y)
+		rez.x2.push(x + node.width)
+		rez.y2.push(y + node.height)
+	}
+
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
@@ -21,14 +30,14 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 					pushXY(node, rez)
 				} else {
 					// if the node is rotated, wrap it in a group
-					let index = getNodeIndex(node)
-					let parent = node.parent
-					let group = figma.group([node], parent, index)
+					const index = getNodeIndex(node)
+					const parent = node.parent
+					const group = figma.group([node], parent, index)
 
 					pushXY(group, rez)
 					parent.insertChild(index, node)
 				}
-				
+
 				return rez
 			},
 			{ x: [], y: [], x2: [], y2: [] }
@@ -47,16 +56,6 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 		boundingRect.y2 = rect.y2
 		boundingRect.width = rect.x2 - rect.x
 		boundingRect.height = rect.y2 - rect.y
-
-
-		// to assemble coordinates
-		function pushXY(node, rez) {
-			const [[, , x], [, , y]] = node.absoluteTransform
-			rez.x.push(x)
-			rez.y.push(y)
-			rez.x2.push(x + node.width)
-			rez.y2.push(y + node.height)
-		}
 	}
 
 	return boundingRect
