@@ -2,6 +2,7 @@
 import getPage from './helpers/getPage'
 import getNodeIndex from './helpers/getNodeIndex'
 import isPartOfInstance from './helpers/isPartOfInstance'
+import isPartOfNode from './helpers/isPartOfNode'
 import topLevelFrames from './helpers/topLevelFrames'
 import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
@@ -31,6 +32,7 @@ export {
 	getAllFonts,
 	loadUniqueFonts,
 	isPartOfInstance,
+	isPartOfNode,
 	isOneOfNodeType,
 	clone,
 	getBoundingRect
