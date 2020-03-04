@@ -17,6 +17,7 @@ import {
 	isTextNode,
 	isOneOfNodeType
 } from './helpers/isTypeNode'
+import nodeToObject from './helpers/nodeToObject'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -35,5 +36,6 @@ export {
 	isPartOfNode,
 	isOneOfNodeType,
 	clone,
-	getBoundingRect
+	getBoundingRect,
+	nodeToObject
 }
