@@ -1,8 +1,13 @@
 # Figma Plugin Helper functions
 A collection of useful helper functions to import to your Figma plugin project
 
-### Install to your project
-An npm package is in progress. Stay tuned.
+### Install
+
+```bash
+npm i @figma-plugin/helpers
+# or
+yarn add @figma-plugin/helpers
+```
 
 ### Development
 ```bash
