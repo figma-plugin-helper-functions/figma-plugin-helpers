@@ -1,9 +1,11 @@
 language: node_js
 node_js:
 - '12.13'
-before_deploy:
-  - npm i
+before_script:
+  - npm run setup
+  - npm run build
 deploy:
+  skip_cleanup: true
   provider: npm
   email: alexandrtovmach@gmail.com
   api_key:

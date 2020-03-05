@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "setup": "npm i",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "prepublishOnly": "tsc",
     "test": "echo \"Error: no test specified\" && exit 0"
@@ -33,7 +34,6 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
-    "tsc": "^1.20150623.0",
     "typescript": "^3.7.4"
   },
   "publishConfig": {
