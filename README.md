@@ -2,9 +2,7 @@
 A collection of useful helper functions to import to your Figma plugin project
 
 ### Install to your project
-```bash
-npm i --save @figma-plugin/figma-plugin-helpers
-```
+An npm package is in progress. Stay tuned.
 
 ### Development
 ```bash
