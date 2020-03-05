@@ -5,8 +5,8 @@ before_script:
   - npm run setup
   - npm run build
 deploy:
-  skip_cleanup: true
   provider: npm
+  skip_cleanup: true
   email: alexandrtovmach@gmail.com
   api_key:
     secure: VvSlI0IXBFgxka2fiUz0BUvrIL6CmCYkH6c3WtInpg/uSn30Sf6ndI3Y7G8sAR6HOXL1/0f8h5fJNDxrIqGGsmVn5KlCDuLEukwC6dG+48CJ6j44wdHWLniWLF1LegyflTDOEYaQXtCUjBg/sCcyjRLNhC4pWOb3w02sHlkMYcF2QeU4oLFgqIOQNqBl/8FQaKI62kI52JPXBsfOK8GfRRPq/4aP86VPvSlC9gIydL0UyyLHRE48VUaL+Q+0zpwK+dCIm9QcDdqC57ejohz+HvxClFPEG6hDC5MJrZx9/79+O/MjAtDR+fNBNRSKWiv5RL/uGMBQpfqgjQ1AZZUj7VJrc3yWbPNArCqV6n3nJ8HzZv4wq5h+Fuso6Dv3r8xod13ts8bj49eg6I7vPzSqZVmCjPA7Ls1Buz3bmPJ7LsJLNFVUPRuM6xLVa3/e7uJFDy09X8TcO6b0S42q+aSFNjHWUkAhT95Qzw1fvlOyKi0V02UgRugAq2Ec2IDwYgFj3p8JUb/n3BSrBFXc73/By01Qzlm1qEas9/AB3ZsgALqzuQgHJ36k/IqYSgkWzA4xfavlDLwoccaCTr46ePb7vuauTNcNbboVl57gaZC9joNiabH0fp4ZFZ38eU+WxbRT5LGbFoWqCLMdt1EJp6PN454+4y/9UROvSAgg8l8t/G0=
