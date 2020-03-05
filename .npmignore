@@ -1,0 +1,8 @@
+src/
+node_modules/
+.travis.yml
+.prettierrc
+.eslintrc
+tsconfig.json
+figma.d.ts
+custom.d.ts
