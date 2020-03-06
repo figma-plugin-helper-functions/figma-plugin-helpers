@@ -2,18 +2,18 @@
 export default function clone(val) {
 	const type = typeof val
 
-	if (val === null) {
-		return null
-	} else if (
+	if (
 		type === 'undefined' ||
 		type === 'number' ||
 		type === 'string' ||
-		type === 'boolean'
+		type === 'boolean' ||
+		type === 'symbol' ||
+		val === null
 	) {
 		return val
 	} else if (type === 'object') {
 		if (val instanceof Array) {
-			return val.map((x) => clone(x))
+			return val.map(clone)
 		} else if (val instanceof Uint8Array) {
 			return new Uint8Array(val)
 		} else {
