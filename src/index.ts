@@ -3,6 +3,7 @@ import getPage from './helpers/getPage'
 import getNodeIndex from './helpers/getNodeIndex'
 import isPartOfInstance from './helpers/isPartOfInstance'
 import isPartOfNode from './helpers/isPartOfNode'
+import isVisibleNode from './helpers/isVisibleNode'
 import topLevelFrames from './helpers/topLevelFrames'
 import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
@@ -34,6 +35,7 @@ export {
 	loadUniqueFonts,
 	isPartOfInstance,
 	isPartOfNode,
+    isVisibleNode,
 	isOneOfNodeType,
 	clone,
 	getBoundingRect,
