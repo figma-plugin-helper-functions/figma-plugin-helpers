@@ -1,12 +1,12 @@
 //this function allows you to check actual node visibility
 export default function isVisibleNode(node: SceneNode): boolean {
-	let part: PageNode | SceneNode = node
-	
-	while (part && part.type != 'PAGE') {
-		if (!part.visible) {
-			return false
+	if (node && node.parent) {
+		if (node.visible && node.parent.type !== 'PAGE') {
+			return isVisibleNode(node.parent as SceneNode);
+		} else {
+			return node.visible;
 		}
-		part = part.parent as PageNode | SceneNode
+	} else {
+		return false;
 	}
-	return true
-}
+};
