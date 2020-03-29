@@ -19,6 +19,7 @@ import {
 	isOneOfNodeType
 } from './helpers/isTypeNode'
 import nodeToObject from './helpers/nodeToObject'
+import { getTextNodeCSS } from './helpers/getCSSStyles'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -39,5 +40,6 @@ export {
 	isOneOfNodeType,
 	clone,
 	getBoundingRect,
-	nodeToObject
+	nodeToObject,
+	getTextNodeCSS
 }
