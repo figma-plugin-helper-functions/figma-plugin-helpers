@@ -1,6 +1,7 @@
 # Figma Plugin Helper functions
 [![npm](https://img.shields.io/npm/v/@figma-plugin/helpers?logo=npm&cacheSeconds=1800)](https://www.npmjs.com/package/@figma-plugin/helpers)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@figma-plugin/helpers?cacheSeconds=1800)](https://bundlephobia.com/result?p=@figma-plugin/helpers)
+[![Travis Build Status](https://travis-ci.org/figma-plugin-helper-functions/figma-plugin-helpers.svg?branch=master)](https://travis-ci.org/figma-plugin-helper-functions/figma-plugin-helpers)
 
 A collection of useful helper functions to import to your Figma plugin project
 
