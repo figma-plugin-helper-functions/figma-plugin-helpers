@@ -8,6 +8,7 @@ import topLevelFrames from './helpers/topLevelFrames'
 import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
 import clone from './helpers/clone'
+import deepEqual from './helpers/deepEqual'
 import getBoundingRect from './helpers/getBoundingRect'
 import {
 	isComponentNode,
@@ -35,9 +36,10 @@ export {
 	loadUniqueFonts,
 	isPartOfInstance,
 	isPartOfNode,
-    isVisibleNode,
+	isVisibleNode,
 	isOneOfNodeType,
 	clone,
 	getBoundingRect,
-	nodeToObject
+	nodeToObject,
+	deepEqual
 }
