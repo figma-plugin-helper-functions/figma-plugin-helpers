@@ -35,7 +35,7 @@ export {
 	loadUniqueFonts,
 	isPartOfInstance,
 	isPartOfNode,
-    isVisibleNode,
+	isVisibleNode,
 	isOneOfNodeType,
 	clone,
 	getBoundingRect,
