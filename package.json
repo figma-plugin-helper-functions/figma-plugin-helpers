@@ -39,6 +39,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@figma-plugin/figma.d.ts": "^1.14.0"
+    "@figma-plugin/types": "^1.14.0"
   }
 }
