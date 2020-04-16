@@ -6,5 +6,5 @@
 		"declaration": true,
 		"esModuleInterop": true
 	},
-	"files": ["@figma-plugin/figma.d.ts"]
+	"files": ["./node_modules/@figma-plugin/figma.d.ts/figma.d.ts"]
 }
