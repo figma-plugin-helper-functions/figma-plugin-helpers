@@ -17,9 +17,5 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: npm publish --access=public
-        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: Status
-        if: failure() || cancelled()
-        run: echo "Modlue not published to NPM"
