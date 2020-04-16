@@ -1,3 +1,5 @@
+import { get } from "lodash";
+
 interface UnitValueObj {
     value?: number;
     unit: "PIXELS" | "PERCENT" | "AUTO";
@@ -36,7 +38,7 @@ const isUnitValue = (obj: any): obj is UnitValueObj => {
 };
 
 const getStyleValue = (node: TextNode, key: string, exactString?: boolean) => {
-    const value = node[key];
+    const value = get(node, key);
     if (value === undefined) {
         return null;
     } else if (typeof value === "string") {
@@ -50,6 +52,7 @@ const getStyleValue = (node: TextNode, key: string, exactString?: boolean) => {
     }
 };
 
+// get CSS styles of TextNode
 export const getTextNodeCSS = (node: TextNode) => {
     return {
         position: "absolute",
