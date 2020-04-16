@@ -1,4 +1,4 @@
 interface Font {
-  family: string
-  style: string
+	family: string
+	style: string
 }
