@@ -1,1 +1,1 @@
-import "@figma-plugin/figma.d.ts"
+import '@figma-plugin/figma.d.ts'
