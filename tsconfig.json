@@ -4,7 +4,12 @@
 		"target": "es6",
 		"outDir": "./dist",
 		"declaration": true,
+		"moduleResolution": "node",
 		"esModuleInterop": true
 	},
-	"files": ["./node_modules/@figma-plugin/types/figma.d.ts"]
+	"exclude": [
+		"__tests__",
+		"dist",
+		"node_modules"
+	]
 }
