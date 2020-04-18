@@ -1,4 +1,10 @@
 //this function returns all used fonts to textNodes
+
+interface Font {
+	family: string
+	style: string
+}
+
 export default function getAllFonts(textNodes: Array<TextNode>) {
 	const fonts: Array<Font> = []
 	const pushUnique = (font: Font) => {
@@ -20,9 +26,4 @@ export default function getAllFonts(textNodes: Array<TextNode>) {
 	}
 
 	return fonts
-}
-
-interface Font {
-	family: string
-	style: string
 }
