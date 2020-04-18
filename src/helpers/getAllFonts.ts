@@ -1,10 +1,5 @@
 //this function returns all used fonts to textNodes
 
-interface Font {
-	family: string
-	style: string
-}
-
 export default function getAllFonts(textNodes: Array<TextNode>) {
 	const fonts: Array<Font> = []
 	const pushUnique = (font: Font) => {
