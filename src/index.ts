@@ -20,6 +20,12 @@ import {
 } from './helpers/isTypeNode'
 import nodeToObject from './helpers/nodeToObject'
 import { getTextNodeCSS } from './helpers/getCSSStyles'
+import {
+	figmaRGBToWebRGB,
+	webRGBToFigmaRGB,
+	figmaRGBToHex,
+	hexToFigmaRGB
+} from './helpers/сonvertСolor'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -41,5 +47,9 @@ export {
 	clone,
 	getBoundingRect,
 	nodeToObject,
-	getTextNodeCSS
+	getTextNodeCSS,
+	figmaRGBToWebRGB,
+	webRGBToFigmaRGB,
+	figmaRGBToHex,
+	hexToFigmaRGB
 }

@@ -21,3 +21,8 @@ export default function getAllFonts(textNodes: Array<TextNode>) {
 
 	return fonts
 }
+
+interface Font {
+	family: string
+	style: string
+}
