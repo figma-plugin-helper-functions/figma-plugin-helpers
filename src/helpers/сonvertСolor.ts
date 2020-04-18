@@ -41,7 +41,7 @@ function webRGBToFigmaRGB(color): any {
 // figmaRGBToWebRGB({r: 0.887499988079071, g: 0.07058823853731155, b: 0.0665624737739563})
 //=> #e21211
 
-function figmaRGBToHex(color: RGB | RGBA): any {
+function figmaRGBToHex(color: RGB | RGBA): string {
 	let hex = '#'
 
 	const rgb = figmaRGBToWebRGB(color) as webRGB | webRGBA
