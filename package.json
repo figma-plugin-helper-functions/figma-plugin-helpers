@@ -1,6 +1,6 @@
 {
   "name": "@figma-plugin/helpers",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A collection of helper functions useful when creating Figma plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
