@@ -1,0 +1,10 @@
+{
+    "inputFiles": ["./src/helpers"],
+    "out": "docs",
+    "mode": "modules",
+    "excludeNotExported": true,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "plugin": "typedoc-plugin-markdown",
+    "hideBreadcrumbs": true
+}
