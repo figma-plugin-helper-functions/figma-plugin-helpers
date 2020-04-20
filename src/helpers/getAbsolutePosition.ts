@@ -1,6 +1,6 @@
 import { isInstanceNode, isGroupNode, isPageNode } from '../'
 
-// calculate absolute position of node on page by asix
+// calculate absolute position of node by asix based on top level element
 const getAbsolutePosition = (node: BaseNode, asix: 'x' | 'y') => {
 	if (!node) {
 		return 0
