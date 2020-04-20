@@ -13,7 +13,7 @@
 
 ▸ **isPartOfNode**(`part`: SceneNode, `rootNode`: BaseNode): *boolean*
 
-*Defined in [isPartOfNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/isPartOfNode.ts#L2)*
+*Defined in [isPartOfNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/isPartOfNode.ts#L2)*
 
 **Parameters:**
 

@@ -18,7 +18,7 @@
 
 • **unit**: *"PIXELS" | "PERCENT" | "AUTO"*
 
-*Defined in [getCSSStyles.ts:5](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L5)*
+*Defined in [getCSSStyles.ts:5](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L5)*
 
 ___
 
@@ -26,4 +26,4 @@ ___
 
 • **value**? : *number*
 
-*Defined in [getCSSStyles.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L4)*
+*Defined in [getCSSStyles.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L4)*

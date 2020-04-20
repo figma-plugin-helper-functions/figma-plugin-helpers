@@ -25,7 +25,7 @@
 
 Ƭ **webRGB**: *[number, number, number]*
 
-*Defined in [convertColor.ts:93](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L93)*
+*Defined in [convertColor.ts:93](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L93)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 Ƭ **webRGBA**: *[number, number, number, number]*
 
-*Defined in [convertColor.ts:94](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L94)*
+*Defined in [convertColor.ts:94](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L94)*
 
 ## Variables
 
@@ -41,7 +41,7 @@ ___
 
 • **namesRGB**: *string[]* = ['r', 'g', 'b']
 
-*Defined in [convertColor.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L1)*
+*Defined in [convertColor.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L1)*
 
 ## Functions
 
@@ -49,7 +49,7 @@ ___
 
 ▸ **figmaRGBToHex**(`color`: RGB | RGBA): *string*
 
-*Defined in [convertColor.ts:44](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L44)*
+*Defined in [convertColor.ts:44](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L44)*
 
 **Parameters:**
 
@@ -65,7 +65,7 @@ ___
 
 ▸ **figmaRGBToWebRGB**(`color`: RGBA): *[webRGBA](_convertcolor_.md#webrgba)*
 
-*Defined in [convertColor.ts:8](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L8)*
+*Defined in [convertColor.ts:8](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L8)*
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ Name | Type |
 
 ▸ **figmaRGBToWebRGB**(`color`: RGB): *[webRGB](_convertcolor_.md#webrgb)*
 
-*Defined in [convertColor.ts:9](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L9)*
+*Defined in [convertColor.ts:9](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L9)*
 
 **Parameters:**
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **hexToFigmaRGB**(`color`: string): *RGB | RGBA*
 
-*Defined in [convertColor.ts:66](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L66)*
+*Defined in [convertColor.ts:66](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L66)*
 
 **Parameters:**
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **webRGBToFigmaRGB**(`color`: [webRGBA](_convertcolor_.md#webrgba)): *RGBA*
 
-*Defined in [convertColor.ts:26](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L26)*
+*Defined in [convertColor.ts:26](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L26)*
 
 **Parameters:**
 
@@ -121,7 +121,7 @@ Name | Type |
 
 ▸ **webRGBToFigmaRGB**(`color`: [webRGB](_convertcolor_.md#webrgb)): *RGB*
 
-*Defined in [convertColor.ts:27](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/convertColor.ts#L27)*
+*Defined in [convertColor.ts:27](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/convertColor.ts#L27)*
 
 **Parameters:**
 

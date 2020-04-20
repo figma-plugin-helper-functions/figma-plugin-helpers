@@ -13,7 +13,7 @@
 
 ▸ **getAllFonts**(`textNodes`: Array‹TextNode›): *any[]*
 
-*Defined in [getAllFonts.ts:3](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getAllFonts.ts#L3)*
+*Defined in [getAllFonts.ts:3](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getAllFonts.ts#L3)*
 
 **Parameters:**
 

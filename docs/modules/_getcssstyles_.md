@@ -21,7 +21,7 @@
 
 ▸ **getStyleValue**(`node`: TextNode, `key`: string, `exactString?`: boolean): *string*
 
-*Defined in [getCSSStyles.ts:40](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L40)*
+*Defined in [getCSSStyles.ts:40](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L40)*
 
 **Parameters:**
 
@@ -39,7 +39,7 @@ ___
 
 ▸ **getTextNodeCSS**(`node`: TextNode): *object*
 
-*Defined in [getCSSStyles.ts:58](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L58)*
+*Defined in [getCSSStyles.ts:58](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L58)*
 
 **Parameters:**
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **isUnitValue**(`obj`: any): *obj is UnitValueObj*
 
-*Defined in [getCSSStyles.ts:36](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L36)*
+*Defined in [getCSSStyles.ts:36](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L36)*
 
 **Parameters:**
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **stringValueToCss**(`value`: string): *"flex-end" | "flex-start" | "center" | "lowercase" | "uppercase" | "capitalize" | "none"*
 
-*Defined in [getCSSStyles.ts:8](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L8)*
+*Defined in [getCSSStyles.ts:8](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L8)*
 
 **Parameters:**
 
@@ -125,7 +125,7 @@ ___
 
 ▸ **unitValueToCss**(`__namedParameters`: object): *string*
 
-*Defined in [getCSSStyles.ts:26](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getCSSStyles.ts#L26)*
+*Defined in [getCSSStyles.ts:26](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getCSSStyles.ts#L26)*
 
 **Parameters:**
 

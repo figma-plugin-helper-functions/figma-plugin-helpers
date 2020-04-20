@@ -13,7 +13,7 @@
 
 ▸ **isPartOfInstance**(`node`: SceneNode): *boolean*
 
-*Defined in [isPartOfInstance.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/isPartOfInstance.ts#L2)*
+*Defined in [isPartOfInstance.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/isPartOfInstance.ts#L2)*
 
 **Parameters:**
 

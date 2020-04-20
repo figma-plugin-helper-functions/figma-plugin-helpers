@@ -13,7 +13,7 @@
 
 ▸ **getNodeIndex**(`node`: SceneNode): *number*
 
-*Defined in [getNodeIndex.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/getNodeIndex.ts#L2)*
+*Defined in [getNodeIndex.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getNodeIndex.ts#L2)*
 
 **Parameters:**
 

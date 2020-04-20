@@ -3,9 +3,12 @@ const { promises: fs } = require('fs')
 const path = require('path')
 const config = require('./typedoc.json')
 
-const docsReadmePath = path.join(__dirname, 'docs', 'README.md')
+const docsPath = path.join(__dirname, 'docs')
+const docsReadmePath = path.join(docsPath, 'README.md')
 
 const main = async () => {
+	await fs.rmdir(docsPath, { recursive: true });
+
 	const app = new TypeDoc.Application()
 	app.options.addReader(new TypeDoc.TSConfigReader())
 	app.bootstrap(config)
