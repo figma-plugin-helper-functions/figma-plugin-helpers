@@ -13,7 +13,9 @@
 
 ▸ **topLevelFrames**(`page`: PageNode): *any[]*
 
-*Defined in [topLevelFrames.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/topLevelFrames.ts#L2)*
+*Defined in [topLevelFrames.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/topLevelFrames.ts#L4)*
+
+this function returns all top level frames on currentPage
 
 **Parameters:**
 

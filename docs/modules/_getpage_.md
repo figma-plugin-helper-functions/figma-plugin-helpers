@@ -13,7 +13,9 @@
 
 ▸ **getPage**(`node`: BaseNode): *PageNode*
 
-*Defined in [getPage.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/getPage.ts#L4)*
+*Defined in [getPage.ts:6](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/getPage.ts#L6)*
+
+this function allows you to pass in a node and return its pageNode
 
 **Parameters:**
 

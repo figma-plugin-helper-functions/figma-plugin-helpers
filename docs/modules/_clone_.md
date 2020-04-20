@@ -13,7 +13,9 @@
 
 ▸ **clone**(`val`: any): *any*
 
-*Defined in [clone.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/clone.ts#L2)*
+*Defined in [clone.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/clone.ts#L4)*
+
+ this function returns clone the object
 
 **Parameters:**
 

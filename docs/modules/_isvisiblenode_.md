@@ -13,7 +13,9 @@
 
 ▸ **isVisibleNode**(`node`: SceneNode): *boolean*
 
-*Defined in [isVisibleNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/isVisibleNode.ts#L2)*
+*Defined in [isVisibleNode.ts:5](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/isVisibleNode.ts#L5)*
+
+This helper recursively checks all parents for visibility, to guarantee that's node is visible
 
 **Parameters:**
 

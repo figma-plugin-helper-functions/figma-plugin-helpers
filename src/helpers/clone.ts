@@ -1,4 +1,6 @@
-//this function returns clone the object
+/**
+ *  this function returns clone the object
+ */
 export default function clone(val) {
 	const type = typeof val
 

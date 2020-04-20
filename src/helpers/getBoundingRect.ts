@@ -1,6 +1,8 @@
 import getNodeIndex from './getNodeIndex'
 
-// this function return a bounding rect for an nodes
+/**
+ *  this function return a bounding rect for an nodes
+ */
 // x/y absolute coordinates
 // height/width
 // x2/y2 bottom right coordinates

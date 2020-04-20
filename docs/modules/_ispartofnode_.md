@@ -13,7 +13,9 @@
 
 ▸ **isPartOfNode**(`part`: SceneNode, `rootNode`: BaseNode): *boolean*
 
-*Defined in [isPartOfNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/55a4bdc/src/helpers/isPartOfNode.ts#L2)*
+*Defined in [isPartOfNode.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/isPartOfNode.ts#L4)*
+
+this function allows you to check whether a node is part of an rootNode
 
 **Parameters:**
 
