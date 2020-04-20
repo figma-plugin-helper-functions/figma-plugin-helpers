@@ -1,11 +1,11 @@
 
-# Module: "helpers/getCSSStyles"
+# Module: "getCSSStyles"
 
 ## Index
 
 ### Functions
 
-* [getTextNodeCSS](_helpers_getcssstyles_.md#const-gettextnodecss)
+* [getTextNodeCSS](_getcssstyles_.md#const-gettextnodecss)
 
 ## Functions
 
@@ -13,7 +13,7 @@
 
 ▸ **getTextNodeCSS**(`node`: TextNode): *object*
 
-*Defined in [helpers/getCSSStyles.ts:58](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/043ed21/src/helpers/getCSSStyles.ts#L58)*
+*Defined in [getCSSStyles.ts:58](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/d7893cb/src/helpers/getCSSStyles.ts#L58)*
 
 **Parameters:**
 

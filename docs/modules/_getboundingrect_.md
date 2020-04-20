@@ -1,11 +1,11 @@
 
-# Module: "helpers/getBoundingRect"
+# Module: "getBoundingRect"
 
 ## Index
 
 ### Functions
 
-* [getBoundingRect](_helpers_getboundingrect_.md#getboundingrect)
+* [getBoundingRect](_getboundingrect_.md#getboundingrect)
 
 ## Functions
 
@@ -13,7 +13,7 @@
 
 ▸ **getBoundingRect**(`nodes`: SceneNode[]): *object*
 
-*Defined in [helpers/getBoundingRect.ts:7](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/043ed21/src/helpers/getBoundingRect.ts#L7)*
+*Defined in [getBoundingRect.ts:7](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/d7893cb/src/helpers/getBoundingRect.ts#L7)*
 
 **Parameters:**
 

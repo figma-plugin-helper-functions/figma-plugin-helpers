@@ -1,14 +1,14 @@
 
-# Module: "helpers/сonvertСolor"
+# Module: "convertСolor"
 
 ## Index
 
 ### Functions
 
-* [figmaRGBToHex](_helpers__onvert_olor_.md#figmargbtohex)
-* [figmaRGBToWebRGB](_helpers__onvert_olor_.md#figmargbtowebrgb)
-* [hexToFigmaRGB](_helpers__onvert_olor_.md#hextofigmargb)
-* [webRGBToFigmaRGB](_helpers__onvert_olor_.md#webrgbtofigmargb)
+* [figmaRGBToHex](_convert_olor_.md#figmargbtohex)
+* [figmaRGBToWebRGB](_convert_olor_.md#figmargbtowebrgb)
+* [hexToFigmaRGB](_convert_olor_.md#hextofigmargb)
+* [webRGBToFigmaRGB](_convert_olor_.md#webrgbtofigmargb)
 
 ## Functions
 
@@ -16,7 +16,7 @@
 
 ▸ **figmaRGBToHex**(`color`: RGB | RGBA): *string*
 
-Defined in helpers/сonvertСolor.ts:44
+Defined in convertСolor.ts:44
 
 **Parameters:**
 
@@ -32,7 +32,7 @@ ___
 
 ▸ **figmaRGBToWebRGB**(`color`: RGBA): *webRGBA*
 
-Defined in helpers/сonvertСolor.ts:8
+Defined in convertСolor.ts:8
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ Name | Type |
 
 ▸ **figmaRGBToWebRGB**(`color`: RGB): *webRGB*
 
-Defined in helpers/сonvertСolor.ts:9
+Defined in convertСolor.ts:9
 
 **Parameters:**
 
@@ -60,7 +60,7 @@ ___
 
 ▸ **hexToFigmaRGB**(`color`: string): *RGB | RGBA*
 
-Defined in helpers/сonvertСolor.ts:66
+Defined in convertСolor.ts:66
 
 **Parameters:**
 
@@ -76,7 +76,7 @@ ___
 
 ▸ **webRGBToFigmaRGB**(`color`: webRGBA): *RGBA*
 
-Defined in helpers/сonvertСolor.ts:26
+Defined in convertСolor.ts:26
 
 **Parameters:**
 
@@ -88,7 +88,7 @@ Name | Type |
 
 ▸ **webRGBToFigmaRGB**(`color`: webRGB): *RGB*
 
-Defined in helpers/сonvertСolor.ts:27
+Defined in convertСolor.ts:27
 
 **Parameters:**
 

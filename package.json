@@ -9,8 +9,7 @@
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
     "test": "jest",
-    "docs": "typedoc",
-    "docs-alt": "node generate-docs"
+    "docs": "node generate-docs"
   },
   "repository": {
     "type": "git",
