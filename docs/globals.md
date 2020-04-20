@@ -6,7 +6,7 @@
 ### Modules
 
 * ["clone"](modules/_clone_.md)
-* ["convertСolor"](modules/_convert_olor_.md)
+* ["convertColor"](modules/_convertcolor_.md)
 * ["getAllFonts"](modules/_getallfonts_.md)
 * ["getBoundingRect"](modules/_getboundingrect_.md)
 * ["getCSSStyles"](modules/_getcssstyles_.md)

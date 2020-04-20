@@ -13,7 +13,7 @@
 
 ▸ **isVisibleNode**(`node`: SceneNode): *boolean*
 
-*Defined in [isVisibleNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/d7893cb/src/helpers/isVisibleNode.ts#L2)*
+*Defined in [isVisibleNode.ts:2](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/703a31f/src/helpers/isVisibleNode.ts#L2)*
 
 **Parameters:**
 

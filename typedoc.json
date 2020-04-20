@@ -2,10 +2,9 @@
     "inputFiles": ["./src/helpers"],
     "out": "docs",
     "mode": "modules",
-    "excludeNotExported": true,
     "ignoreCompilerErrors": true,
-    "excludePrivate": true,
-    "excludeProtected": true,
+    "includeDeclarations": true,
+    "excludeExternals": true,
     "plugin": "typedoc-plugin-markdown",
     "hideBreadcrumbs": true
 }
