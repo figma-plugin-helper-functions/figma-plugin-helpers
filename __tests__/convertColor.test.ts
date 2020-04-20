@@ -40,4 +40,13 @@ describe('convertColor', () => {
 	test('HEXa to figmaRGBA', () => {
 		expect(hexToFigmaRGB(HEXa)).toEqual({ r: 0, g: 0.10196078431372549, b: 1, a: 0.5019607843137255 })
 	})
+	test('001aff to figmaRGB', () => {
+		expect(hexToFigmaRGB("001aff")).toEqual({ r: 0, g: 0.10196078431372549, b: 1 })
+	})
+	test('#0af to figmaRGB', () => {
+		expect(hexToFigmaRGB("#0af")).toEqual({ r: 0, g: 0.6666666666666666, b: 1 })
+	})
+	test('0af to figmaRGB', () => {
+		expect(hexToFigmaRGB("0af")).toEqual({ r: 0, g: 0.6666666666666666, b: 1 })
+	})
 })
