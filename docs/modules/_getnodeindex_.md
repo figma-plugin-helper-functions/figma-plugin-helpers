@@ -13,7 +13,7 @@
 
 ▸ **getNodeIndex**(`node`: SceneNode): *number*
 
-*Defined in [getNodeIndex.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/3cad610/src/helpers/getNodeIndex.ts#L4)*
+*Defined in [getNodeIndex.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/43ca7ad/src/helpers/getNodeIndex.ts#L4)*
 
 this function allows you to get the return the index of node in its parent
 
