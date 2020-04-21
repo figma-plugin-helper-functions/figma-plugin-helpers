@@ -26,7 +26,7 @@ import {
 	webRGBToFigmaRGB,
 	figmaRGBToHex,
 	hexToFigmaRGB
-} from './helpers/convertColoer'
+} from './helpers/convertColor'
 
 //export all helper functions so they can be used indidually as needed
 export {
