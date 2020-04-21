@@ -1,5 +1,5 @@
 import { createFigma } from 'figma-api-stub'
-import { getRealtivePosition, isFrameNode, getNodeIndex } from '../src'
+import { getRealtivePosition } from '../src'
 
 const GAP = 50
 const figma = createFigma({})
