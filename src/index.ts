@@ -9,6 +9,7 @@ import getAllFonts from './helpers/getAllFonts'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
 import clone from './helpers/clone'
 import getBoundingRect from './helpers/getBoundingRect'
+import getRealtivePosition from './helpers/getRealtivePosition'
 import {
 	isComponentNode,
 	isFrameNode,
@@ -51,5 +52,6 @@ export {
 	figmaRGBToWebRGB,
 	webRGBToFigmaRGB,
 	figmaRGBToHex,
-	hexToFigmaRGB
+	hexToFigmaRGB,
+	getRealtivePosition
 }
