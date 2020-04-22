@@ -1,4 +1,6 @@
-//this function returns all used fonts to textNodes
+/**
+ * this function returns all used fonts to textNodes
+ */
 
 export default function getAllFonts(textNodes: Array<TextNode>) {
 	const fonts: Array<Font> = []

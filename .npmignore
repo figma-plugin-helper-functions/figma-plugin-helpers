@@ -1,5 +1,6 @@
 src/
 node_modules/
+.vscode/
 .travis.yml
 .prettierrc
 .eslintrc

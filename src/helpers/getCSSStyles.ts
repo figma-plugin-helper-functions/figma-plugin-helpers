@@ -54,7 +54,9 @@ const getStyleValue = (node: TextNode, key: string, exactString?: boolean) => {
 	}
 }
 
-// get CSS styles of TextNode
+/**
+ *  get CSS styles of TextNode
+ */
 export const getTextNodeCSS = (node: TextNode) => {
 	return {
 		position: 'absolute',

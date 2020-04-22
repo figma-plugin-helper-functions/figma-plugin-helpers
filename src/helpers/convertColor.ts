@@ -1,6 +1,8 @@
 const namesRGB = ['r', 'g', 'b']
 
-//this function converts figma color (object) to RGB(A) (array)
+/**
+ * this function converts figma color (object) to RGB(A) (array)
+ */
 
 // figmaRGBToWebRGB({r: 0.887499988079071, g: 0.07058823853731155, b: 0.0665624737739563})
 //=> [226, 18, 17]
@@ -18,7 +20,9 @@ function figmaRGBToWebRGB(color): any {
 	return rgb
 }
 
-//this function converts RGB(A) color (array) to figma color (object)
+/**
+ * this function converts RGB(A) color (array) to figma color (object)
+ */
 
 // figmaRGBToWebRGB([226, 18, 17])
 //=> {r: 0.8862745098039215, g: 0.07058823529411765, b: 0.06666666666666667}
@@ -36,7 +40,9 @@ function webRGBToFigmaRGB(color): any {
 	return rgb
 }
 
-//this function converts figma color (object) to HEX (string)
+/**
+ * this function converts figma color (object) to HEX (string)
+ */
 
 // figmaRGBToWebRGB({r: 0.887499988079071, g: 0.07058823853731155, b: 0.0665624737739563})
 //=> #e21211
@@ -58,7 +64,9 @@ function figmaRGBToHex(color: RGB | RGBA): string {
 	return hex
 }
 
-//this function converts HEX color (string) to figma color (object)
+/**
+ * this function converts HEX color (string) to figma color (object)
+ */
 
 // figmaRGBToWebRGB(#e21211)
 //=> #e21211

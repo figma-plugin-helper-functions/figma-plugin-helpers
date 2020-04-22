@@ -1,4 +1,6 @@
-//this function allows you to check whether a node is part of an rootNode
+/**
+ * this function allows you to check whether a node is part of an rootNode
+ */
 export default function isPartOfNode(part: SceneNode, rootNode: BaseNode): boolean {
 	const parent = part.parent
 	if (parent === rootNode) {

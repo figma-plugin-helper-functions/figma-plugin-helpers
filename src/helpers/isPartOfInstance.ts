@@ -1,4 +1,6 @@
-//this function allows you to check whether a node is part of an instance
+/**
+ * this function allows you to check whether a node is part of an instance
+ */
 export default function isPartOfInstance(node: SceneNode): boolean {
 	const parent = node.parent
 	if (parent.type === 'INSTANCE') {

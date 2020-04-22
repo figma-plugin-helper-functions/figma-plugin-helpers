@@ -8,7 +8,8 @@
     "build": "tsc --build tsconfig.build.json",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
-    "test": "jest"
+    "test": "jest",
+    "docs": "node generate-docs"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,8 @@
     "figma-api-stub": "0.0.32",
     "jest": "^25.3.0",
     "prettier": "^1.19.1",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3"
   },
   "publishConfig": {
