@@ -12,6 +12,7 @@
 * ["getCSSStyles"](modules/_getcssstyles_.md)
 * ["getNodeIndex"](modules/_getnodeindex_.md)
 * ["getPage"](modules/_getpage_.md)
+* ["getRealtivePosition"](modules/_getrealtiveposition_.md)
 * ["isPartOfInstance"](modules/_ispartofinstance_.md)
 * ["isPartOfNode"](modules/_ispartofnode_.md)
 * ["isTypeNode"](modules/_istypenode_.md)
