@@ -19,10 +19,9 @@ import { isTextNode } from "@figma-plugin/helpers";
 const firstTextNode = figma.currentPage.findOne(node => isTextNode(node));
 ```
 
-## Development
-```bash
-npm run lint
-```
+## Documentation
+
+Find more information about each helper function in [`/docs`](./docs/globals.md) directory.
 
 ## Roadmap
 - Write a contribution guidelines
