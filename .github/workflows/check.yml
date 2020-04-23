@@ -2,8 +2,10 @@ name: Check code
 
 on:
   pull_request:
+    paths:
+      - '!docs/**'
     branches:
-      - master    
+      - master
 
 jobs:
   check:
