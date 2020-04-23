@@ -24,4 +24,4 @@ jobs:
         with:
           commit-message: 'docs: Generated documentation'
           title: Generated docs
-          body: Auto-generated documentation for latest cahnges in master
+          body: Auto-generated documentation by [typedoc](https://typedoc.org/). Please close this PR and immediately re-open it to trigger check run. More details in ["Triggering further workflow runs"](https://github.com/peter-evans/create-pull-request/blob/master/docs/concepts-guidelines.md#triggering-further-workflow-runs)
