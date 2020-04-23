@@ -1,7 +1,7 @@
 const namesRGB = ['r', 'g', 'b']
 
 /**
- * this function converts figma color (object) to RGB(A) (array)
+ * this function converts figma color to RGB(A) (array)
  */
 
 // figmaRGBToWebRGB({r: 0.887499988079071, g: 0.07058823853731155, b: 0.0665624737739563})
@@ -16,15 +16,15 @@ function figmaRGBToWebRGB(color): any {
 		rgb[i] = Math.round(color[e] * 255)
 	})
 
-	if (color['a'] !== undefined) rgb[3] = color['a']
+	if (color['a'] !== undefined) rgb[3] = Math.round(color['a'] * 100) / 100
 	return rgb
 }
 
 /**
- * this function converts RGB(A) color (array) to figma color (object)
+ * this function converts RGB(A) color (array) to figma color
  */
 
-// figmaRGBToWebRGB([226, 18, 17])
+// webRGBToFigmaRGB([226, 18, 17])
 //=> {r: 0.8862745098039215, g: 0.07058823529411765, b: 0.06666666666666667}
 
 function webRGBToFigmaRGB(color: webRGBA): RGBA
@@ -41,11 +41,11 @@ function webRGBToFigmaRGB(color): any {
 }
 
 /**
- * this function converts figma color (object) to HEX (string)
+ * this function converts figma color to HEX (string)
  */
 
-// figmaRGBToWebRGB({r: 0.887499988079071, g: 0.07058823853731155, b: 0.0665624737739563})
-//=> #e21211
+// figmaRGBToHex({ r: 0, g: 0.1, b: 1 })
+//=> #001aff
 
 function figmaRGBToHex(color: RGB | RGBA): string {
 	let hex = '#'
@@ -65,11 +65,11 @@ function figmaRGBToHex(color: RGB | RGBA): string {
 }
 
 /**
- * this function converts HEX color (string) to figma color (object)
+ * this function converts HEX color (string) to figma color
  */
 
-// figmaRGBToWebRGB(#e21211)
-//=> #e21211
+// hexToFigmaRGB(#001aff)
+//=> { r: 0, g: 0.10196078431372549, b: 1 }
 
 function hexToFigmaRGB(color: string): RGB | RGBA {
 	let opacity = ''
