@@ -3,7 +3,10 @@ name: Publish to npm
 on:
   push:
     branches:
-      - master    
+      - master
+    paths:
+      # require to change version number in package.json
+      - 'package.json'
 
 jobs:
   publish-npm:
