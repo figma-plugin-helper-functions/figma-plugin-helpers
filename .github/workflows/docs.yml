@@ -1,8 +1,13 @@
 name: Generate docs
 
 on:
-  pull_request_review:
-    types: [submitted]
+  push:
+    branches:
+      - master
+    paths:
+      # re-generate docs only on functional changes
+      - 'src/**'
+      - './*.d.ts'
 
 jobs:
   docs:
@@ -14,9 +19,9 @@ jobs:
           node-version: 12
       - run: npm i
       - run: npm run docs
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v4
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
         with:
-          author_name: GitHub Action
-          author_email: action@github.com
-          message: "docs: Generated documentation"
+          commit-message: 'docs: Generated documentation'
+          title: Generated docs
+          body: Auto-generated documentation for latest cahnges in master
