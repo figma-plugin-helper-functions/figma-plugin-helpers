@@ -1,11 +1,11 @@
-import { isPageNode } from "../"
+import { isPageNode } from '../'
 /**
  * Return top level parent for node before PageNode.
  * For example:
  * ```js
  * // for structure below
  * // Page / Frame / Group1 / Group2 / Text
- * 
+ *
  * getTopLevelParent(Text) // Frame
  * ```
  */
@@ -23,9 +23,9 @@ export const getTopLevelParent = (node: BaseNode): BaseNode => {
  * ```js
  * // for structure below
  * // Page / Frame / Group1 / Group2 / Text
- * 
+ *
  * getRealtivePosition(Text, Group1) // will calculate { x, y } based on Group1
- * 
+ *
  * getRealtivePosition(Text) // will calculate { x, y } based on Frame
  * ```
  **/
