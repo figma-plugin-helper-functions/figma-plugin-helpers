@@ -1,23 +1,43 @@
-import { isInstanceNode, isGroupNode, isPageNode } from '..'
-
+import { isPageNode } from "../"
 /**
- *  calculate relative position of node by asix
- **/
-const getRealtivePosition = (
-	node: BaseNode,
-	asix: 'x' | 'y',
-	conditionFunc?: (node: BaseNode) => boolean
-) => {
-	conditionFunc = conditionFunc || (() => false)
-	if (!node || conditionFunc(node.parent) || isPageNode(node.parent)) {
-		return 0
-	} else if (isInstanceNode(node) && isGroupNode(node.parent)) {
-		return node[asix]
-	} else if (isGroupNode(node)) {
-		return getRealtivePosition(node.parent, asix, conditionFunc)
+ * Return top level parent for node before PageNode.
+ * For example:
+ * ```js
+ * // for structure below
+ * // Page / Frame / Group1 / Group2 / Text
+ * 
+ * getTopLevelParent(Text) // Frame
+ * ```
+ */
+export const getTopLevelParent = (node: BaseNode): BaseNode => {
+	if (node && node.parent && !isPageNode(node.parent)) {
+		return getTopLevelParent(node.parent)
 	} else {
-		return node[asix] + getRealtivePosition(node.parent, asix, conditionFunc)
+		return node
 	}
 }
 
-export default getRealtivePosition
+/**
+ * Calculate relative position of node based on provided parent or top level parent.
+ * For example:
+ * ```js
+ * // for structure below
+ * // Page / Frame / Group1 / Group2 / Text
+ * 
+ * getRealtivePosition(Text, Group1) // will calculate { x, y } based on Group1
+ * 
+ * getRealtivePosition(Text) // will calculate { x, y } based on Frame
+ * ```
+ **/
+export const getRealtivePosition = (
+	node: BaseNode & LayoutMixin,
+	relativeNode?: BaseNode & LayoutMixin
+) => {
+	relativeNode = relativeNode || (getTopLevelParent(node) as BaseNode & LayoutMixin)
+	return {
+		x: Math.abs(
+			Math.round(relativeNode.absoluteTransform[0][2] - node.absoluteTransform[0][2])
+		),
+		y: Math.abs(Math.round(relativeNode.absoluteTransform[1][2] - node.absoluteTransform[1][2]))
+	}
+}
