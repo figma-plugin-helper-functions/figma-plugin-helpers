@@ -13,7 +13,7 @@
 
 ▸ **loadUniqueFonts**(`textNodes`: Array‹TextNode›): *Promise‹Font[]›*
 
-*Defined in [loadUniqueFonts.ts:6](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/48d6a43/src/helpers/loadUniqueFonts.ts#L6)*
+*Defined in [loadUniqueFonts.ts:6](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/d198f68/src/helpers/loadUniqueFonts.ts#L6)*
 
 this function allows you to load only unique fonts asynchronously
 
