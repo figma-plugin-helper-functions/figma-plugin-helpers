@@ -4,6 +4,7 @@ import getAllFonts from './helpers/getAllFonts'
 import getBoundingRect from './helpers/getBoundingRect'
 import getNodeIndex from './helpers/getNodeIndex'
 import getPage from './helpers/getPage'
+import hasChildren from './helpers/hasChildren'
 import isPartOfInstance from './helpers/isPartOfInstance'
 import isPartOfNode from './helpers/isPartOfNode'
 import isVisibleNode from './helpers/isVisibleNode'
@@ -54,5 +55,6 @@ export {
 	figmaRGBToHex,
 	hexToFigmaRGB,
 	getRealtivePosition,
-	getTopLevelParent
+	getTopLevelParent,
+	hasChildren
 }
