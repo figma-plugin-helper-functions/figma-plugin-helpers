@@ -1,11 +1,11 @@
 {
   "name": "@figma-plugin/helpers",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "A collection of helper functions useful when creating Figma plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build tsconfig.build.json",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
     "test": "jest",

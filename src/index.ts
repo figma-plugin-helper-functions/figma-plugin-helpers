@@ -12,7 +12,7 @@ import loadUniqueFonts from './helpers/loadUniqueFonts'
 import nodeToObject from './helpers/nodeToObject'
 import topLevelFrames from './helpers/topLevelFrames'
 import { getTextNodeCSS } from './helpers/getCSSStyles'
-import { findAll } from './helpers/findMethods'
+import { findAll, findOne } from './helpers/findMethods'
 import { getRealtivePosition, getTopLevelParent } from './helpers/getRealtivePosition'
 import {
 	figmaRGBToWebRGB,
@@ -58,5 +58,6 @@ export {
 	getRealtivePosition,
 	getTopLevelParent,
 	hasChildren,
-	findAll
+	findAll,
+	findOne
 }

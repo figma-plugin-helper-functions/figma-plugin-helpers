@@ -1,5 +1,5 @@
 import { createFigma } from 'figma-api-stub'
-import { findAll, isTextNode } from '../src'
+import { findAll, findOne, isTextNode } from '../src'
 
 const figma = createFigma({})
 const pageNode = figma.createPage()
@@ -17,5 +17,12 @@ describe('findAll', () => {
         const result = findAll(pageNode.children, isTextNode);
         expect(result.length).toEqual(3)
         expect(isTextNode(result[0])).toBe(true)
+    })
+})
+
+describe('findOne', () => {
+    test('return node by condition', () => {
+        const result = findOne(pageNode.children, (el) => el.id === textNode2.id);
+        expect(result.id === textNode2.id).toBe(true)
     })
 })
