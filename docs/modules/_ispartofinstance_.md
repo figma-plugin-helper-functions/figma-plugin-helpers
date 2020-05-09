@@ -13,7 +13,7 @@
 
 ▸ **isPartOfInstance**(`node`: SceneNode): *boolean*
 
-*Defined in [isPartOfInstance.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/8e2f518/src/helpers/isPartOfInstance.ts#L4)*
+*Defined in [isPartOfInstance.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a3901b/src/helpers/isPartOfInstance.ts#L4)*
 
 this function allows you to check whether a node is part of an instance
 

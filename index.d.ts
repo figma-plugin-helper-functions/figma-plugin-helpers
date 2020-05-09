@@ -1,1 +1,0 @@
-import '@figma-plugin/types'

@@ -1,11 +1,11 @@
 {
   "name": "@figma-plugin/helpers",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "A collection of helper functions useful when creating Figma plugins",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "tsc",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
     "test": "jest",
@@ -31,6 +31,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
+    "@figma/plugin-typings": "^1.15.0",
     "@types/jest": "^25.2.1",
     "@types/lodash": "^4.14.150",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
@@ -50,7 +51,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@figma-plugin/types": "^1.14.0",
     "lodash": "^4.17.15"
   }
 }
