@@ -1,6 +1,5 @@
 import { createFigma } from 'figma-api-stub'
-import { findAll, isTextNode } from '../src'
-import { findOne } from '../src/helpers/findMethods'
+import { findAll, findOne, isTextNode } from '../src'
 
 const figma = createFigma({})
 const pageNode = figma.createPage()
