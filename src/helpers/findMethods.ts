@@ -58,8 +58,8 @@ export const findOne = (
 		if (iteratee(nodes[i], i, nodes)) {
 			return nodes[i]
 		} else if (hasChildren(nodes[i])) {
-      		return findOne(nodes[i]["children"], iteratee);
+			return findOne(nodes[i]['children'], iteratee)
 		}
 	}
-	return null;
+	return null
 }
