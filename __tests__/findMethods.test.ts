@@ -18,11 +18,20 @@ describe('findAll', () => {
         expect(result.length).toEqual(3)
         expect(isTextNode(result[0])).toBe(true)
     })
+    test('return all nodes from deep dive for all pages', () => {
+        const result = findAll(figma.root.children, isTextNode);
+        expect(result.length).toEqual(3)
+        expect(isTextNode(result[0])).toBe(true)
+    })
 })
 
 describe('findOne', () => {
     test('return node by condition', () => {
         const result = findOne(pageNode.children, (el) => el.id === textNode2.id);
+        expect(result.id === textNode2.id).toBe(true)
+    })
+    test('return node by condition for all pages', () => {
+        const result = findOne(figma.root.children, (el) => el.id === textNode2.id);
         expect(result.id === textNode2.id).toBe(true)
     })
 })

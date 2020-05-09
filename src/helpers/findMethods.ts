@@ -1,5 +1,6 @@
 import { hasChildren } from '..'
 
+type Children = readonly SceneNode[] | readonly PageNode[];
 /**
  * Custom implementation of the figma.findAll method, which runs x1000 times faster.
  *
@@ -19,17 +20,18 @@ import { hasChildren } from '..'
  * ```
  */
 export const findAll = (
-	nodes: readonly SceneNode[],
-	iteratee: (elem?: BaseNode, idx?: number, array?: readonly SceneNode[]) => boolean
+	nodes: Children,
+	iteratee: (elem?: BaseNode, idx?: number, array?: Children) => boolean
 ) => {
-	return nodes.reduce((prev, el, i, arr) => {
-		if (iteratee(el, i, arr)) {
-			prev.push(el)
-		} else if (hasChildren(el)) {
-			prev.push(...findAll(el.children, iteratee))
+	const result = [];
+	for (let i = 0; i < nodes.length; i++) {
+		if (iteratee(nodes[i], i, nodes)) {
+			result.push(nodes[i]);
+		} else if (hasChildren(nodes[i])) {
+			result.push(...findAll(nodes[i]['children'], iteratee))
 		}
-		return prev
-	}, [])
+	}
+	return result;
 }
 
 /**
@@ -51,8 +53,8 @@ export const findAll = (
  * ```
  */
 export const findOne = (
-	nodes: readonly SceneNode[],
-	iteratee: (elem?: BaseNode, idx?: number, array?: readonly SceneNode[]) => boolean
+	nodes: Children,
+	iteratee: (elem?: BaseNode, idx?: number, array?: Children) => boolean
 ) => {
 	for (let i = 0; i < nodes.length; i++) {
 		if (iteratee(nodes[i], i, nodes)) {
