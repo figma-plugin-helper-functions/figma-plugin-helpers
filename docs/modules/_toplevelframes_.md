@@ -11,9 +11,9 @@
 
 ###  topLevelFrames
 
-▸ **topLevelFrames**(`page`: PageNode): *any[]*
+▸ **topLevelFrames**(`page`: PageNode): *FrameNode[]*
 
-*Defined in [topLevelFrames.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a3901b/src/helpers/topLevelFrames.ts#L4)*
+*Defined in [topLevelFrames.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/48d6a43/src/helpers/topLevelFrames.ts#L4)*
 
 this function returns all top level frames on currentPage
 
@@ -23,4 +23,4 @@ Name | Type | Default |
 ------ | ------ | ------ |
 `page` | PageNode | figma.currentPage |
 
-**Returns:** *any[]*
+**Returns:** *FrameNode[]*

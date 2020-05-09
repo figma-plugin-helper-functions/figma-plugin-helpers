@@ -13,7 +13,7 @@
 
 ▸ **nodeToObject**(`node`: any): *any*
 
-*Defined in [nodeToObject.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a3901b/src/helpers/nodeToObject.ts#L1)*
+*Defined in [nodeToObject.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/48d6a43/src/helpers/nodeToObject.ts#L1)*
 
 **Parameters:**
 
