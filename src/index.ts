@@ -4,6 +4,7 @@ import getAllFonts from './helpers/getAllFonts'
 import getBoundingRect from './helpers/getBoundingRect'
 import getNodeIndex from './helpers/getNodeIndex'
 import getPage from './helpers/getPage'
+import hasChildren from './helpers/hasChildren'
 import isPartOfInstance from './helpers/isPartOfInstance'
 import isPartOfNode from './helpers/isPartOfNode'
 import isVisibleNode from './helpers/isVisibleNode'
@@ -11,6 +12,7 @@ import loadUniqueFonts from './helpers/loadUniqueFonts'
 import nodeToObject from './helpers/nodeToObject'
 import topLevelFrames from './helpers/topLevelFrames'
 import { getTextNodeCSS } from './helpers/getCSSStyles'
+import { findAll } from './helpers/findMethods'
 import { getRealtivePosition, getTopLevelParent } from './helpers/getRealtivePosition'
 import {
 	figmaRGBToWebRGB,
@@ -54,5 +56,7 @@ export {
 	figmaRGBToHex,
 	hexToFigmaRGB,
 	getRealtivePosition,
-	getTopLevelParent
+	getTopLevelParent,
+	hasChildren,
+	findAll
 }
