@@ -29,6 +29,9 @@ import {
 	isTextNode,
 	isOneOfNodeType
 } from './helpers/isTypeNode'
+import { extractImageCropParams } from './helpers/extractImageCropParams'
+import { extractLinearGradientParamsFromTransform } from './helpers/extractLinearGradientStartEnd'
+import { extractRadialOrDiamondGradientParams } from './helpers/extractRadialOrDiamondGradientParams'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -58,5 +61,8 @@ export {
 	getRealtivePosition,
 	getTopLevelParent,
 	hasChildren,
-	findAll
+	findAll,
+	extractImageCropParams,
+	extractLinearGradientParamsFromTransform,
+	extractRadialOrDiamondGradientParams
 }
