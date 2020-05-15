@@ -1,6 +1,13 @@
 import matrixInverse from 'matrix-inverse';
 import { applyMatrixToPoint } from './applyMatrixToPoint';
 
+/**
+ * This method can extract the image crop rotation, scale (/size) and position.
+ * 
+ * @param shapeWidth
+ * @param shapeHeight 
+ * @param t 
+ */
 export function extractImageCropParams(shapeWidth: number, shapeHeight: number, t: Transform) {
 	const transform = t.length === 2 ? [...t, [0, 0, 1]] : [...t];
 	const mxInv = matrixInverse(transform);
