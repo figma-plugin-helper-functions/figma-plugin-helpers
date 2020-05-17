@@ -25,4 +25,5 @@
 * ["isVisibleNode"](modules/_isvisiblenode_.md)
 * ["loadUniqueFonts"](modules/_loaduniquefonts_.md)
 * ["nodeToObject"](modules/_nodetoobject_.md)
+* ["setCharacters"](modules/_setcharacters_.md)
 * ["topLevelFrames"](modules/_toplevelframes_.md)
