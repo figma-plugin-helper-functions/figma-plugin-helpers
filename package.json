@@ -1,57 +1,70 @@
 {
-  "name": "@figma-plugin/helpers",
-  "version": "0.11.5",
-  "description": "A collection of helper functions useful when creating Figma plugins",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
-    "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
-    "test": "jest",
-    "docs": "node generate-docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/figma-plugin-helper-functions/figma-plugin-helpers.git"
-  },
-  "keywords": [
-    "figma",
-    "plugins",
-    "helper",
-    "functions"
-  ],
-  "author": "Figma Community",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/issues"
-  },
-  "homepage": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers#readme",
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-typescript": "^7.9.0",
-    "@figma/plugin-typings": "^1.15.0",
-    "@types/jest": "^25.2.1",
-    "@types/lodash": "^4.14.150",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "babel-jest": "^25.4.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "figma-api-stub": "0.0.32",
-    "jest": "^25.4.0",
-    "prettier": "^1.19.1",
-    "typedoc": "^0.17.4",
-    "typedoc-plugin-markdown": "^2.2.17",
-    "typescript": "^3.8.3"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "lodash": "^4.17.15",
-    "matrix-inverse": "^1.0.1"
-  }
+	"name": "@figma-plugin/helpers",
+	"version": "0.11.5",
+	"description": "A collection of helper functions useful when creating Figma plugins",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc --build tsconfig.build.json",
+		"lint": "eslint \"src/**/*.{js,ts,tsx}\"",
+		"lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
+		"test": "jest",
+		"docs": "node generate-docs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/figma-plugin-helper-functions/figma-plugin-helpers.git"
+	},
+	"keywords": [
+		"figma",
+		"plugins",
+		"helper",
+		"functions"
+	],
+	"author": "Figma Community",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/issues"
+	},
+	"homepage": "https://github.com/figma-plugin-helper-functions/figma-plugin-helpers#readme",
+	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/preset-env": "^7.9.5",
+		"@babel/preset-typescript": "^7.9.0",
+		"@figma/plugin-typings": "^1.15.0",
+		"@types/jest": "^25.2.1",
+		"@types/lodash": "^4.14.150",
+		"@typescript-eslint/eslint-plugin": "^2.29.0",
+		"@typescript-eslint/parser": "^2.29.0",
+		"babel-jest": "^25.4.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.3",
+		"figma-api-stub": "0.0.32",
+		"husky": "^4.2.5",
+		"jest": "^25.4.0",
+		"lint-staged": "^10.2.2",
+		"prettier": "^1.19.1",
+		"typedoc": "^0.17.4",
+		"typedoc-plugin-markdown": "^2.2.17",
+		"typescript": "^3.8.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"lodash": "^4.17.15",
+		"matrix-inverse": "^1.0.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts}": [
+			"eslint --fix",
+			"git add"
+		]
+	}
 }
