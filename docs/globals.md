@@ -5,8 +5,12 @@
 
 ### Modules
 
+* ["applyMatrixToPoint"](modules/_applymatrixtopoint_.md)
 * ["clone"](modules/_clone_.md)
 * ["convertColor"](modules/_convertcolor_.md)
+* ["extractImageCropParams"](modules/_extractimagecropparams_.md)
+* ["extractLinearGradientStartEnd"](modules/_extractlineargradientstartend_.md)
+* ["extractRadialOrDiamondGradientParams"](modules/_extractradialordiamondgradientparams_.md)
 * ["findMethods"](modules/_findmethods_.md)
 * ["getAllFonts"](modules/_getallfonts_.md)
 * ["getBoundingRect"](modules/_getboundingrect_.md)
@@ -21,4 +25,5 @@
 * ["isVisibleNode"](modules/_isvisiblenode_.md)
 * ["loadUniqueFonts"](modules/_loaduniquefonts_.md)
 * ["nodeToObject"](modules/_nodetoobject_.md)
+* ["setCharacters"](modules/_setcharacters_.md)
 * ["topLevelFrames"](modules/_toplevelframes_.md)
