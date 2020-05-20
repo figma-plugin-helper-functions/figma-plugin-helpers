@@ -1,6 +1,3 @@
-import getNodeIndex from './getNodeIndex'
-import isPartOfInstance from './isPartOfInstance'
-
 /**
  *  this function return a bounding rect for an nodes
  */
