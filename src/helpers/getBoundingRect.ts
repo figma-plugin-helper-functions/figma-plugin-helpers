@@ -1,7 +1,6 @@
 import getNodeIndex from './getNodeIndex'
 import isPartOfInstance from './isPartOfInstance'
 
-
 /**
  *  this function return a bounding rect for an nodes
  */
@@ -33,44 +32,44 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 					const [[, , x], [, , y]] = node.absoluteTransform
 					pushXY(x, y, node.width, node.height, rez)
 				} else {
-					var r = node.rotation % 180
-					var reversed = r > 90 || r < -90
+					let r = node.rotation % 180
+					const reversed = r > 90 || r < -90
 
 					if (reversed) {
-						r = r + (180 * - Math.sign(r))
+						r = r + 180 * -Math.sign(r)
 					} else {
 						r = -r
 					}
 
-					var a = r * Math.PI / 180;
-					var s = Math.sin(a);
-					var c = Math.cos(a);
+					const a = (r * Math.PI) / 180
+					const s = Math.sin(a)
+					const c = Math.cos(a)
 
-					let height = node.height
-					let width = node.width
-					var x = node.x
+					const height = node.height
+					const width = node.width
+					let x = node.x
 					let y = node.y
-					var w = Math.abs(height * s) + Math.abs(width * c)
-					var h = Math.abs(height * c) + Math.abs(width * s)
+					const w = Math.abs(height * s) + Math.abs(width * c)
+					const h = Math.abs(height * c) + Math.abs(width * s)
 
 					if (a < 0) {
 						if (reversed) {
-							y = y - h;
-							x = x - width * c;
+							y = y - h
+							x = x - width * c
 						} else {
-							y = y + width * s;
+							y = y + width * s
 						}
 					} else if (a > 0) {
 						if (reversed) {
-							y = y - height * c;
-							x = x - w;
+							y = y - height * c
+							x = x - w
 						} else {
-							x = x - height * s;
+							x = x - height * s
 						}
-					} else if(a == 0) {
+					} else if (a == 0) {
 						if (Math.abs(node.rotation) === 180) {
-							y = y - h;
-							x = x - w;
+							y = y - h
+							x = x - w
 						}
 					}
 
