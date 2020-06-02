@@ -16,10 +16,13 @@ const nodeToObject = (node: any, withoutRelations?: boolean) => {
 	const blacklist = ['parent', 'children', 'removed', 'masterComponent']
 	const obj: any = { id: node.id, type: node.type }
 	for (const [name, prop] of props) {
-		if (prop.get && blacklist.includes(name)) {
+		if (prop.get && !blacklist.includes(name)) {
 			try {
-				obj[name] = prop.get.call(node)
-				if (typeof obj[name] === 'symbol') obj[name] = 'Mixed'
+				if (typeof obj[name] === 'symbol') {
+					obj[name] = 'Mixed'
+				} else {
+					obj[name] = prop.get.call(node)
+				}
 			} catch (err) {
 				obj[name] = undefined
 			}
