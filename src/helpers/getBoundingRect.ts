@@ -1,5 +1,3 @@
-import getNodeIndex from './getNodeIndex'
-
 /**
  *  this function return a bounding rect for an nodes
  */
@@ -17,27 +15,62 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 	}
 
 	// to assemble coordinates
-	function pushXY(node, rez) {
-		const [[, , x], [, , y]] = node.absoluteTransform
+	function pushXY(x, y, w, h, rez) {
 		rez.x.push(x)
 		rez.y.push(y)
-		rez.x2.push(x + node.width)
-		rez.y2.push(y + node.height)
+		rez.x2.push(x + w)
+		rez.y2.push(y + h)
 	}
 
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
-				if (node.rotation === 0) {
-					pushXY(node, rez)
+				if (Math.abs(node.rotation) === 0) {
+					const [[, , x], [, , y]] = node.absoluteTransform
+					pushXY(x, y, node.width, node.height, rez)
 				} else {
-					// if the node is rotated, wrap it in a group
-					const index = getNodeIndex(node)
-					const parent = node.parent
-					const group = figma.group([node], parent, index)
+					let r = node.rotation % 180
+					const reversed = r > 90 || r < -90
 
-					pushXY(group, rez)
-					parent.insertChild(index, node)
+					if (reversed) {
+						r = r + 180 * -Math.sign(r)
+					} else {
+						r = -r
+					}
+
+					const a = (r * Math.PI) / 180
+					const s = Math.sin(a)
+					const c = Math.cos(a)
+
+					const height = node.height
+					const width = node.width
+					let x = node.x
+					let y = node.y
+					const w = Math.abs(height * s) + Math.abs(width * c)
+					const h = Math.abs(height * c) + Math.abs(width * s)
+
+					if (a < 0) {
+						if (reversed) {
+							y = y - h
+							x = x - width * c
+						} else {
+							y = y + width * s
+						}
+					} else if (a > 0) {
+						if (reversed) {
+							y = y - height * c
+							x = x - w
+						} else {
+							x = x - height * s
+						}
+					} else if (a == 0) {
+						if (Math.abs(node.rotation) === 180) {
+							y = y - h
+							x = x - w
+						}
+					}
+
+					pushXY(x, y, w, h, rez)
 				}
 
 				return rez

@@ -13,7 +13,7 @@
 
 ▸ **extractLinearGradientParamsFromTransform**(`shapeWidth`: number, `shapeHeight`: number, `t`: Transform): *object*
 
-*Defined in [extractLinearGradientStartEnd.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/8d604c1/src/helpers/extractLinearGradientStartEnd.ts#L12)*
+*Defined in [extractLinearGradientStartEnd.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/e417c28/src/helpers/extractLinearGradientStartEnd.ts#L12)*
 
 This method can extract the x and y positions of the start and end of the linear gradient
 (scale is not important here)
