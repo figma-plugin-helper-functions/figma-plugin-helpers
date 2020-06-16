@@ -11,7 +11,7 @@
  * @param node
  * @param withoutRelations
  */
-const nodeToObject = (node: any, withoutRelations?: boolean) => {
+export const nodeToObject = (node: any, withoutRelations?: boolean) => {
 	const props = Object.entries(Object.getOwnPropertyDescriptors(node.__proto__))
 	const blacklist = ['parent', 'children', 'removed', 'masterComponent']
 	const obj: any = { id: node.id, type: node.type }
@@ -39,5 +39,3 @@ const nodeToObject = (node: any, withoutRelations?: boolean) => {
 	}
 	return obj
 }
-
-export default nodeToObject
