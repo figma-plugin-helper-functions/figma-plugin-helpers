@@ -13,7 +13,7 @@
 
 ▸ **getPage**(`node`: BaseNode): *PageNode*
 
-*Defined in [getPage.ts:6](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/getPage.ts#L6)*
+*Defined in [getPage.ts:6](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/getPage.ts#L6)*
 
 this function allows you to pass in a node and return its pageNode
 

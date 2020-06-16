@@ -16,7 +16,7 @@
 
 ▸ **figmaRGBToHex**(`color`: RGB | RGBA): *string*
 
-*Defined in [convertColor.ts:50](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L50)*
+*Defined in [convertColor.ts:50](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L50)*
 
 this function converts figma color to HEX (string)
 
@@ -34,7 +34,7 @@ ___
 
 ▸ **figmaRGBToWebRGB**(`color`: RGBA): *webRGBA*
 
-*Defined in [convertColor.ts:10](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L10)*
+*Defined in [convertColor.ts:10](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L10)*
 
 this function converts figma color to RGB(A) (array)
 
@@ -48,7 +48,7 @@ Name | Type |
 
 ▸ **figmaRGBToWebRGB**(`color`: RGB): *webRGB*
 
-*Defined in [convertColor.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L11)*
+*Defined in [convertColor.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L11)*
 
 **Parameters:**
 
@@ -64,7 +64,7 @@ ___
 
 ▸ **hexToFigmaRGB**(`color`: string): *RGB | RGBA*
 
-*Defined in [convertColor.ts:74](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L74)*
+*Defined in [convertColor.ts:74](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L74)*
 
 this function converts HEX color (string) to figma color
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **webRGBToFigmaRGB**(`color`: webRGBA): *RGBA*
 
-*Defined in [convertColor.ts:30](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L30)*
+*Defined in [convertColor.ts:30](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L30)*
 
 this function converts RGB(A) color (array) to figma color
 
@@ -96,7 +96,7 @@ Name | Type |
 
 ▸ **webRGBToFigmaRGB**(`color`: webRGB): *RGB*
 
-*Defined in [convertColor.ts:31](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/convertColor.ts#L31)*
+*Defined in [convertColor.ts:31](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/convertColor.ts#L31)*
 
 **Parameters:**
 

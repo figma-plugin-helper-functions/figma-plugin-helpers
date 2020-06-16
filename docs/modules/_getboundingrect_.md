@@ -13,7 +13,7 @@
 
 ▸ **getBoundingRect**(`nodes`: SceneNode[]): *object*
 
-*Defined in [getBoundingRect.ts:7](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7e97ef9/src/helpers/getBoundingRect.ts#L7)*
+*Defined in [getBoundingRect.ts:7](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/getBoundingRect.ts#L7)*
 
  this function return a bounding rect for an nodes
 
