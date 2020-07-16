@@ -33,6 +33,7 @@ import { extractImageCropParams } from './helpers/extractImageCropParams'
 import { extractLinearGradientParamsFromTransform } from './helpers/extractLinearGradientStartEnd'
 import { extractRadialOrDiamondGradientParams } from './helpers/extractRadialOrDiamondGradientParams'
 import { setCharacters } from './helpers/setCharacters'
+import { parseTextStyle, splitTextStyleIntoLines } from './helpers/parseTextStyle'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -66,5 +67,7 @@ export {
 	extractImageCropParams,
 	extractLinearGradientParamsFromTransform,
 	extractRadialOrDiamondGradientParams,
-	setCharacters
+	setCharacters,
+	parseTextStyle,
+	splitTextStyleIntoLines
 }
