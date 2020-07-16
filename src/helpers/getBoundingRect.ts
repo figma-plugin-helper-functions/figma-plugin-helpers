@@ -25,9 +25,12 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
+				let [[, , x], [, , y]] = node.absoluteTransform
+				const height = node.height
+				const width = node.width
+
 				if (Math.abs(node.rotation) === 0) {
-					const [[, , x], [, , y]] = node.absoluteTransform
-					pushXY(x, y, node.width, node.height, rez)
+					pushXY(x, y, width, height, rez)
 				} else {
 					let r = node.rotation % 180
 					const reversed = r > 90 || r < -90
@@ -42,10 +45,6 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 					const s = Math.sin(a)
 					const c = Math.cos(a)
 
-					const height = node.height
-					const width = node.width
-					let x = node.x
-					let y = node.y
 					const w = Math.abs(height * s) + Math.abs(width * c)
 					const h = Math.abs(height * c) + Math.abs(width * s)
 
