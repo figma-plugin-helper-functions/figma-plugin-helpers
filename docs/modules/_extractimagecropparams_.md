@@ -13,7 +13,7 @@
 
 ▸ **extractImageCropParams**(`shapeWidth`: number, `shapeHeight`: number, `t`: Transform): *object*
 
-*Defined in [extractImageCropParams.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/8d604c1/src/helpers/extractImageCropParams.ts#L11)*
+*Defined in [extractImageCropParams.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/extractImageCropParams.ts#L11)*
 
 This method can extract the image crop rotation, scale (/size) and position.
 
