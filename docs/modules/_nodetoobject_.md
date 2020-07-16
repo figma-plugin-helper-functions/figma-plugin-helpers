@@ -13,7 +13,7 @@
 
 ▸ **nodeToObject**(`node`: any, `withoutRelations?`: boolean): *any*
 
-*Defined in [nodeToObject.ts:14](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/a7845f4/src/helpers/nodeToObject.ts#L14)*
+*Defined in [nodeToObject.ts:14](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/c5d7d3c/src/helpers/nodeToObject.ts#L14)*
 
 Transform node to object with keys, that are hidden by default.
 For example:
