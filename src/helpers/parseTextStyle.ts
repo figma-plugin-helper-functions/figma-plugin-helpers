@@ -1,4 +1,5 @@
-import { isEqual, cloneDeep } from 'lodash'
+import { isEqual, cloneDeep, uniqWith } from 'lodash'
+import loadFonts from './loadFonts'
 
 const styleFonts: FontStyleNames[] = [
 	'fontSize',
@@ -11,21 +12,21 @@ const styleFonts: FontStyleNames[] = [
 ]
 
 /*
-	Функция парсит стили текстового узла, разбивая их по массивам, вроде
+	The function returns the text node styles, splitting them into different arrays, such as:
 	[{
-		characters: "строка",
-		... (её стили)
+		characters: "...",
+		... (styles)
 	}, ...]
 
 	---
 
-	Вернёт стиль для всего текста
+	Returns styles for the entire text:
 	parseTextStyle(textNode)
 	
-	Вернёт стиль для текста с 100 символа
+	Returns text styles from the 100th to the last character:
 	parseTextStyle(textNode, 100)
 
-	Вернёт стиль только для fontName и textDecoration
+	Returns styles for the entire text, but only with fontName and textDecoration:
 	parseTextStyle(textNode, undefined, undefined, ["fontName", "textDecoration"])
 */
 
@@ -38,22 +39,27 @@ export function parseTextStyle(
 	if (!end) end = node.characters.length
 	if (!styleName) styleName = styleFonts
 
-	// страка подстрок, определённых стилей
+	if (end <= start) {
+		console.error('Start must be greater than end')
+		return []
+	}
+
+	// string substring, defined styles
 	const styleMap = []
 
-	// формируемая cтрока, определённого стиля
+	// a composing string of a specific style
 	let textStyle: LetteStyle
 
-	// Сравнение стилей символа со стилями формируемой подстроки
+	// comparing character styles to the styles of the composing substring
 	const isEqualLetterStyle = (letter: LetteStyle): boolean => {
 		let is = true
 
-		// перебераем свойства шрифта
+		// iterating over font properties
 		for (const key in letter) {
 			if (key !== 'characters') {
 				if (!isEqual(letter[key], textStyle[key])) {
-					// свойство разнится
-					// прекращаем перебор
+					// property varies
+					// stop searching
 					is = false
 					break
 				}
@@ -67,30 +73,30 @@ export function parseTextStyle(
 		return name.replace(/^(.)/g, ($1) => $1.toUpperCase())
 	})
 
-	// разбиение на подстроки
+	// splitting text into substrings by style
 
 	for (let startIndex = start; startIndex < end; startIndex++) {
 		const endIndex = startIndex + 1
 		const letter = { characters: node.characters[startIndex] }
 
-		// сбор стилей
+		// collection of styles
 		names.forEach((n, i) => {
 			letter[styleName[i]] = node['getRange' + n](startIndex, endIndex)
 		})
 
 		if (textStyle) {
 			if (isEqualLetterStyle(letter)) {
-				// символ имеет теже свойства, что и формируемая подстрока
-				// добавляем его к ней
+				// the character has the same properties as the generated substring
+				// add it to it
 				textStyle.characters += letter.characters
 			} else {
-				// свойства стиля отличается
+				// style properties are different
 				styleMap.push(textStyle)
-				// начинаем формировать новую подстроку
+				// we start to form a new substring
 				textStyle = letter
 			}
 		} else {
-			// начинаем формирование первой подстроки
+			// we start forming the first substring
 			textStyle = letter
 		}
 	}
@@ -100,9 +106,10 @@ export function parseTextStyle(
 }
 
 /*
-	Позволяет разбить стили, полученные с помощью parseTextStyle, на строки (по символам переноса).
-	Если параметр removeNewlineCharacters == true, символы новых строк будут удалены.
-	При removeEmptylines == true будут удалены пустые строки
+	Allows to split the styles obtained with parseTextStyle into lines based on newlines.
+
+	If the removeNewlineCharacters parameter == true, the newline characters will be removed.
+	RemoveEmptylines == true will remove empty lines.
 */
 
 export function splitTextStyleIntoLines(
@@ -111,7 +118,7 @@ export function splitTextStyleIntoLines(
 	removeEmptylines = false
 ) {
 	let lines: LetteStyle[][] = []
-	let line = []
+	let line: LetteStyle[] = []
 	const re = new RegExp('(\n|\u2028)|(.+)(\n|\u2028)?', 'g')
 	const re2 = new RegExp('\n|\u2028')
 
@@ -120,17 +127,17 @@ export function splitTextStyleIntoLines(
 			const ls = style.characters.match(re)
 
 			if (ls === null) {
-				// текст стиля отсутствует
+				// text is missing
 
 				line.push(style)
 			} else if (ls.length === 1) {
-				// текст стиля состоит из 1 строки
+				// the style text consists of 1 line
 
 				line.push(style)
 				lines.push(line)
 				line = []
 			} else {
-				// текст стиля из нескольких строк
+				// multiple-line text
 
 				style = cloneDeep(style)
 				style.characters = ls.shift()
@@ -140,7 +147,7 @@ export function splitTextStyleIntoLines(
 
 				const last = ls.pop()
 
-				// разбираемся над внутренними строками текста стиля
+				// dealing with internal text strings
 				lines.push(
 					...ls.map((e) => {
 						style = cloneDeep(style)
@@ -150,12 +157,12 @@ export function splitTextStyleIntoLines(
 				)
 
 				if (re2.test(last)) {
-					// последняя строка конечная
+					// last line final
 					style = cloneDeep(style)
 					style.characters = last
 					lines.push([style])
 				} else {
-					// не заканчивается
+					// does not end
 					style = cloneDeep(style)
 					style.characters = last
 					line.push(style)
@@ -168,7 +175,7 @@ export function splitTextStyleIntoLines(
 
 	if (line.length) lines.push(line)
 
-	// удаляем сиволы новой строки
+	// deleting newline characters
 	if (removeNewlineCharacters) {
 		lines.forEach((l) => {
 			l.forEach((style) => {
@@ -177,7 +184,7 @@ export function splitTextStyleIntoLines(
 		})
 	}
 
-	// удаляем пустые строки
+	// deleting empty lines
 	if (removeEmptylines) {
 		lines = lines.filter(
 			(l) => l.filter((l) => l.characters.replace(re2, '') !== '').length !== 0
@@ -185,4 +192,43 @@ export function splitTextStyleIntoLines(
 	}
 
 	return lines
+}
+
+/*
+	Create a textNode from the text style obtained from the parseTextStyle
+*/
+
+export async function createTextNode(textStyle: LetteStyle[]) {
+	let fonts = [
+		{
+			family: 'Roboto',
+			style: 'Regular'
+		}
+	]
+
+	if (textStyle[0].fontName) {
+		fonts = textStyle.map((e) => e.fontName)
+	}
+
+	fonts = uniqWith(fonts, isEqual)
+	await loadFonts(fonts)
+
+	const textNode = figma.createText()
+	textNode.characters = textStyle.reduce((str, style) => {
+		return str + style.characters
+	}, '')
+
+	let n = 0
+	textStyle.forEach((style) => {
+		const L = style.characters.length
+		for (const key in style) {
+			if (key !== 'characters') {
+				const name = key.replace(/^(.)/g, ($1) => $1.toUpperCase())
+				textNode['setRange' + name](n, n + L, style[key])
+			}
+		}
+		n += L
+	})
+
+	return textNode
 }
