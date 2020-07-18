@@ -209,12 +209,8 @@ function joinTextLinesStyles(textStyle: LetteStyle[][], addNewlineCharacters = f
 }
 
 /*
-	Create a textNode from the text style obtained from the parseTextStyle
-	The second parameter can be passed a text node, its text will be replaced
-	setTextNodeFromTextStyle
-	changeTextNode
-	extStyle TextNode
-	ApplyTextStyleToTextNode
+	Apply the text styles obtained from parseTextStyle to the text node.
+	The second parameter can be passed a text node, the text of which will be changed.
 */
 
 async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: TextNode) {
