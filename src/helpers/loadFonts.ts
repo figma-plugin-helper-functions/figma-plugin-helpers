@@ -3,5 +3,6 @@
  */
 export default async function loadFonts(fonts: Array<FontName>) {
 	const promises = fonts.map((font) => figma.loadFontAsync(font))
-	return await Promise.all(promises)
+	await Promise.all(promises)
+	return fonts
 }

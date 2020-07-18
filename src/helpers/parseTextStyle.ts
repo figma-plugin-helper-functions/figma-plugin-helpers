@@ -30,7 +30,7 @@ const styleFonts: FontStyleNames[] = [
 	parseTextStyle(textNode, undefined, undefined, ["fontName", "textDecoration"])
 */
 
-export function parseTextStyle(
+function parseTextStyle(
 	node: TextNode,
 	start = 0,
 	end?: number,
@@ -50,25 +50,6 @@ export function parseTextStyle(
 	// a composing string of a specific style
 	let textStyle: LetteStyle
 
-	// comparing character styles to the styles of the composing substring
-	const isEqualLetterStyle = (letter: LetteStyle): boolean => {
-		let is = true
-
-		// iterating over font properties
-		for (const key in letter) {
-			if (key !== 'characters') {
-				if (!isEqual(letter[key], textStyle[key])) {
-					// property varies
-					// stop searching
-					is = false
-					break
-				}
-			}
-		}
-
-		return is
-	}
-
 	const names = styleName.map((name) => {
 		return name.replace(/^(.)/g, ($1) => $1.toUpperCase())
 	})
@@ -85,7 +66,7 @@ export function parseTextStyle(
 		})
 
 		if (textStyle) {
-			if (isEqualLetterStyle(letter)) {
+			if (isEqualLetterStyle(letter, textStyle)) {
 				// the character has the same properties as the generated substring
 				// add it to it
 				textStyle.characters += letter.characters
@@ -112,7 +93,7 @@ export function parseTextStyle(
 	RemoveEmptylines == true will remove empty lines.
 */
 
-export function splitTextStyleIntoLines(
+function splitTextStyleIntoLines(
 	textStyle: LetteStyle[],
 	removeNewlineCharacters = false,
 	removeEmptylines = false
@@ -195,10 +176,44 @@ export function splitTextStyleIntoLines(
 }
 
 /*
-	Create a textNode from the text style obtained from the parseTextStyle
+	Inverse function of splitTextStyleIntoLines.
+	The addNewlineCharacters parameter is responsible for whether you need to add a newline character at the end of each line
 */
 
-export async function createTextNode(textStyle: LetteStyle[]) {
+function joinTextLinesStyles(textStyle: LetteStyle[][], addNewlineCharacters = false) {
+	textStyle = cloneDeep(textStyle)
+
+	// adding new line characters
+	if (addNewlineCharacters) {
+		textStyle.forEach((style, i) => {
+			if (i !== textStyle.length - 1) style[style.length - 1].characters += '\n'
+		})
+	}
+
+	// join
+	const line = textStyle.shift()
+	textStyle.forEach((style) => {
+		const fitst = style.shift()
+
+		if (isEqualLetterStyle(fitst, line[line.length - 1])) {
+			// the style of the beginning of the line differs from the end of the style of the text being compiled
+			line[line.length - 1].characters += fitst.characters
+		} else {
+			line.push(fitst)
+		}
+
+		if (style.length) line.push(...style)
+	})
+
+	return line
+}
+
+/*
+	Create a textNode from the text style obtained from the parseTextStyle
+	The second parameter can be passed a text node, its text will be replaced
+*/
+
+async function createTextNodeFromTextStyle(textStyle: LetteStyle[], textNode?: TextNode) {
 	let fonts = [
 		{
 			family: 'Roboto',
@@ -213,7 +228,7 @@ export async function createTextNode(textStyle: LetteStyle[]) {
 	fonts = uniqWith(fonts, isEqual)
 	await loadFonts(fonts)
 
-	const textNode = figma.createText()
+	if (!textNode) textNode = figma.createText()
 	textNode.characters = textStyle.reduce((str, style) => {
 		return str + style.characters
 	}, '')
@@ -232,3 +247,24 @@ export async function createTextNode(textStyle: LetteStyle[]) {
 
 	return textNode
 }
+
+/*comparing character styles to the styles of the composing substring*/
+function isEqualLetterStyle(letter: LetteStyle, textStyle: LetteStyle): boolean {
+	let is = true
+
+	// iterating over font properties
+	for (const key in letter) {
+		if (key !== 'characters') {
+			if (!isEqual(letter[key], textStyle[key])) {
+				// property varies
+				// stop searching
+				is = false
+				break
+			}
+		}
+	}
+
+	return is
+}
+
+export { parseTextStyle, splitTextStyleIntoLines, joinTextLinesStyles, createTextNodeFromTextStyle }
