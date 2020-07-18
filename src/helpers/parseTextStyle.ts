@@ -211,9 +211,13 @@ function joinTextLinesStyles(textStyle: LetteStyle[][], addNewlineCharacters = f
 /*
 	Create a textNode from the text style obtained from the parseTextStyle
 	The second parameter can be passed a text node, its text will be replaced
+	setTextNodeFromTextStyle
+	changeTextNode
+	extStyle TextNode
+	ApplyTextStyleToTextNode
 */
 
-async function createTextNodeFromTextStyle(textStyle: LetteStyle[], textNode?: TextNode) {
+async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: TextNode) {
 	let fonts = [
 		{
 			family: 'Roboto',
@@ -248,6 +252,38 @@ async function createTextNodeFromTextStyle(textStyle: LetteStyle[], textNode?: T
 	return textNode
 }
 
+/*
+	Replacing text in textStyle
+	If the passed text is shorter than in styles, the extra styles will be removed.
+	If the passed text is longer than the styles, the overflow text will get the style of the last character.
+*/
+
+function changeCharactersTextStyle(textStyle: LetteStyle[], characters: string) {
+	textStyle = cloneDeep(textStyle)
+
+	let n = 0
+	const length = textStyle.length - 1
+	const charactersLength = characters.length
+	for (let i = 0; i <= length; i++) {
+		const s = textStyle[i]
+		let l = s.characters.length
+
+		// if passed text is longer than text in styles
+		if (i == length) l = charactersLength
+
+		s.characters = characters.slice(n, n + l)
+		n += l
+
+		if (n > charactersLength) {
+			// new text is shorter than text in styles
+			textStyle = textStyle.splice(0, i + 1)
+			continue
+		}
+	}
+
+	return textStyle
+}
+
 /*comparing character styles to the styles of the composing substring*/
 function isEqualLetterStyle(letter: LetteStyle, textStyle: LetteStyle): boolean {
 	let is = true
@@ -267,4 +303,10 @@ function isEqualLetterStyle(letter: LetteStyle, textStyle: LetteStyle): boolean 
 	return is
 }
 
-export { parseTextStyle, splitTextStyleIntoLines, joinTextLinesStyles, createTextNodeFromTextStyle }
+export {
+	parseTextStyle,
+	splitTextStyleIntoLines,
+	joinTextLinesStyles,
+	applyTextStyleToTextNode,
+	changeCharactersTextStyle
+}
