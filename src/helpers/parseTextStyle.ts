@@ -1,4 +1,5 @@
 import { isEqual, cloneDeep, uniqWith } from 'lodash'
+import getAllFonts from './getAllFonts'
 import loadFonts from './loadFonts'
 
 const styleFonts: FontStyleNames[] = [
@@ -222,28 +223,37 @@ async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: Text
 	]
 
 	if (textStyle[0].fontName) {
-		fonts = textStyle.map((e) => e.fontName)
+		fonts.push(...textStyle.map((e) => e.fontName))
+	}
+
+	if (textNode) {
+		fonts.push(...getAllFonts([textNode]))
 	}
 
 	fonts = uniqWith(fonts, isEqual)
-	await loadFonts(fonts)
 
-	if (!textNode) textNode = figma.createText()
-	textNode.characters = textStyle.reduce((str, style) => {
-		return str + style.characters
-	}, '')
+	try {
+		await loadFonts(fonts)
 
-	let n = 0
-	textStyle.forEach((style) => {
-		const L = style.characters.length
-		for (const key in style) {
-			if (key !== 'characters') {
-				const name = key.replace(/^(.)/g, ($1) => $1.toUpperCase())
-				textNode['setRange' + name](n, n + L, style[key])
+		if (!textNode) textNode = await figma.createText()
+		textNode.characters = textStyle.reduce((str, style) => {
+			return str + style.characters
+		}, '')
+
+		let n = 0
+		textStyle.forEach((style) => {
+			const L = style.characters.length
+			for (const key in style) {
+				if (key !== 'characters') {
+					const name = key.replace(/^(.)/g, ($1) => $1.toUpperCase())
+					textNode['setRange' + name](n, n + L, style[key])
+				}
 			}
-		}
-		n += L
-	})
+			n += L
+		})
+	} catch (e) {
+		console.log(e)
+	}
 
 	return textNode
 }
@@ -280,6 +290,79 @@ function changeCharactersTextStyle(textStyle: LetteStyle[], characters: string) 
 	return textStyle
 }
 
+/*
+	Function for changing properties of TextStyle. 
+	The beforeValue parameter allows you to specify the value in which the property to be changed should be.
+*/
+
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'fontSize',
+	newValue: number,
+	beforeValue?: number
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'fontName',
+	newValue: FontName,
+	beforeValue?: FontName
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'textCase',
+	newValue: TextCase,
+	beforeValue?: TextCase
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'textDecoration',
+	newValue: TextDecoration,
+	beforeValue?: TextDecoration
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'letterSpacing',
+	newValue: LetterSpacing,
+	beforeValue?: LetterSpacing
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'lineHeight',
+	newValue: LineHeight,
+	beforeValue?: LineHeight
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'fills',
+	newValue: Paint[],
+	beforeValue?: Paint[]
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: 'textStyleId' | 'fillStyleId',
+	newValue: string,
+	beforeValue?: string
+)
+function changeTextStyle(
+	textStyle: LetteStyle[],
+	styleName: FontStyleNames,
+	newValue: any,
+	beforeValue?: any
+) {
+	textStyle = cloneDeep(textStyle)
+
+	textStyle.forEach((style) => {
+		if (
+			beforeValue === undefined ||
+			(beforeValue !== undefined && isEqual(style[styleName], beforeValue))
+		) {
+			;(style as any)[styleName] = newValue
+		}
+	})
+
+	return textStyle
+}
+
 /*comparing character styles to the styles of the composing substring*/
 function isEqualLetterStyle(letter: LetteStyle, textStyle: LetteStyle): boolean {
 	let is = true
@@ -304,5 +387,6 @@ export {
 	splitTextStyleIntoLines,
 	joinTextLinesStyles,
 	applyTextStyleToTextNode,
-	changeCharactersTextStyle
+	changeCharactersTextStyle,
+	changeTextStyle
 }

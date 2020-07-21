@@ -39,7 +39,8 @@ import {
 	splitTextStyleIntoLines,
 	joinTextLinesStyles,
 	applyTextStyleToTextNode,
-	changeCharactersTextStyle
+	changeCharactersTextStyle,
+	changeTextStyle
 } from './helpers/parseTextStyle'
 
 //export all helper functions so they can be used indidually as needed
@@ -80,5 +81,6 @@ export {
 	splitTextStyleIntoLines,
 	joinTextLinesStyles,
 	applyTextStyleToTextNode,
-	changeCharactersTextStyle
+	changeCharactersTextStyle,
+	changeTextStyle
 }

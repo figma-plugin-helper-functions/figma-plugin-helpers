@@ -29,3 +29,5 @@ type FontStyleNames =
 	| 'letterSpacing'
 	| 'lineHeight'
 	| 'fills'
+	| 'textStyleId'
+	| 'fillStyleId'
