@@ -9,6 +9,7 @@ import isPartOfInstance from './helpers/isPartOfInstance'
 import isPartOfNode from './helpers/isPartOfNode'
 import isVisibleNode from './helpers/isVisibleNode'
 import loadUniqueFonts from './helpers/loadUniqueFonts'
+import loadFonts from './helpers/loadFonts'
 import { nodeToObject } from './helpers/nodeToObject'
 import topLevelFrames from './helpers/topLevelFrames'
 import { getTextNodeCSS } from './helpers/getCSSStyles'
@@ -33,6 +34,14 @@ import { extractImageCropParams } from './helpers/extractImageCropParams'
 import { extractLinearGradientParamsFromTransform } from './helpers/extractLinearGradientStartEnd'
 import { extractRadialOrDiamondGradientParams } from './helpers/extractRadialOrDiamondGradientParams'
 import { setCharacters } from './helpers/setCharacters'
+import {
+	parseTextStyle,
+	splitTextStyleIntoLines,
+	joinTextLinesStyles,
+	applyTextStyleToTextNode,
+	changeCharactersTextStyle,
+	changeTextStyle
+} from './helpers/parseTextStyle'
 
 //export all helper functions so they can be used indidually as needed
 export {
@@ -47,6 +56,7 @@ export {
 	topLevelFrames,
 	getAllFonts,
 	loadUniqueFonts,
+	loadFonts,
 	isPartOfInstance,
 	isPartOfNode,
 	isVisibleNode,
@@ -66,5 +76,11 @@ export {
 	extractImageCropParams,
 	extractLinearGradientParamsFromTransform,
 	extractRadialOrDiamondGradientParams,
-	setCharacters
+	setCharacters,
+	parseTextStyle,
+	splitTextStyleIntoLines,
+	joinTextLinesStyles,
+	applyTextStyleToTextNode,
+	changeCharactersTextStyle,
+	changeTextStyle
 }
