@@ -16,14 +16,6 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 		width: 0
 	}
 
-	// to assemble coordinates
-	function pushXY(x, y, w, h, rez) {
-		rez.x.push(x)
-		rez.y.push(y)
-		rez.x2.push(x + w)
-		rez.y2.push(y + h)
-	}
-
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
@@ -42,6 +34,7 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 					[1, -1, -1, 1]
 				]
 
+				// fill in
 				for (let i = 0; i <= 3; i++) {
 					const a = applyMatrixToPoint(matrix, [
 						XY[0][i] * halfWidth,
@@ -54,11 +47,10 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 				XY[0].sort((a, b) => a - b)
 				XY[1].sort((a, b) => a - b)
 
-				// subtract the minimum coordinate from the maximum
-				const w = XY[0][3] - XY[0][0]
-				const h = XY[1][3] - XY[1][0]
-
-				pushXY(XY[0][0], XY[1][0], w, h, rez)
+				rez.x.push(XY[0][0])
+				rez.y.push(XY[1][0])
+				rez.x2.push(XY[0][3])
+				rez.y2.push(XY[1][3])
 
 				return rez
 			},
