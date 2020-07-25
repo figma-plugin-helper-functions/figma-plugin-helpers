@@ -1,3 +1,5 @@
+import { applyMatrixToPoint } from './applyMatrixToPoint'
+
 /**
  *  this function return a bounding rect for an nodes
  */
@@ -25,52 +27,38 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
-				let [[, , x], [, , y]] = node.absoluteTransform
-				const height = node.height
-				const width = node.width
+				const halfHeight = node.height / 2
+				const halfWidth = node.width / 2
 
-				if (Math.abs(node.rotation) === 0) {
-					pushXY(x, y, width, height, rez)
-				} else {
-					let r = node.rotation % 180
-					const reversed = r > 90 || r < -90
+				const [[c0, s0, x], [s1, c1, y]] = node.absoluteTransform
+				const matrix = [
+					[c0, s0, x + halfWidth * c0 + halfHeight * s0],
+					[s1, c1, y + halfWidth * s1 + halfHeight * c1]
+				]
 
-					if (reversed) {
-						r = r + 180 * -Math.sign(r)
-					} else {
-						r = -r
-					}
+				// the coordinates of the corners of the rectangle
+				const XY = [
+					[1, -1, 1, -1],
+					[1, -1, -1, 1]
+				]
 
-					const a = (r * Math.PI) / 180
-					const s = Math.sin(a)
-					const c = Math.cos(a)
-
-					const w = Math.abs(height * s) + Math.abs(width * c)
-					const h = Math.abs(height * c) + Math.abs(width * s)
-
-					if (a < 0) {
-						if (reversed) {
-							y = y - h
-							x = x - width * c
-						} else {
-							y = y + width * s
-						}
-					} else if (a > 0) {
-						if (reversed) {
-							y = y - height * c
-							x = x - w
-						} else {
-							x = x - height * s
-						}
-					} else if (a == 0) {
-						if (Math.abs(node.rotation) === 180) {
-							y = y - h
-							x = x - w
-						}
-					}
-
-					pushXY(x, y, w, h, rez)
+				for (let i = 0; i <= 3; i++) {
+					const a = applyMatrixToPoint(matrix, [
+						XY[0][i] * halfWidth,
+						XY[1][i] * halfHeight
+					])
+					XY[0][i] = a[0]
+					XY[1][i] = a[1]
 				}
+
+				XY[0].sort((a, b) => a - b)
+				XY[1].sort((a, b) => a - b)
+
+				// subtract the minimum coordinate from the maximum
+				const w = XY[0][3] - XY[0][0]
+				const h = XY[1][3] - XY[1][0]
+
+				pushXY(XY[0][0], XY[1][0], w, h, rez)
 
 				return rez
 			},
