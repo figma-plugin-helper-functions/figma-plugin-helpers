@@ -13,7 +13,7 @@
 
 ▸ **extractRadialOrDiamondGradientParams**(`shapeWidth`: number, `shapeHeight`: number, `t`: number[][]): *object*
 
-*Defined in [extractRadialOrDiamondGradientParams.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/c5d7d3c/src/helpers/extractRadialOrDiamondGradientParams.ts#L11)*
+*Defined in [extractRadialOrDiamondGradientParams.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/0fbf45c/src/helpers/extractRadialOrDiamondGradientParams.ts#L11)*
 
 This method can extract the rotation (in degrees), center point and radius for a radial or diamond gradient
 
