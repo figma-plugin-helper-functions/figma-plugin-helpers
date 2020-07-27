@@ -13,7 +13,7 @@
 
 ▸ **applyMatrixToPoint**(`matrix`: number[][], `point`: number[]): *number[]*
 
-*Defined in [applyMatrixToPoint.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/c5d7d3c/src/helpers/applyMatrixToPoint.ts#L1)*
+*Defined in [applyMatrixToPoint.ts:1](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/0fbf45c/src/helpers/applyMatrixToPoint.ts#L1)*
 
 **Parameters:**
 
