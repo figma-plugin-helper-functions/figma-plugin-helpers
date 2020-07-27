@@ -29,28 +29,28 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 				]
 
 				// the coordinates of the corners of the rectangle
-				const XY = [
-					[1, -1, 1, -1],
-					[1, -1, -1, 1]
-				]
+				const XY = {
+					x: [1, -1, 1, -1],
+					y: [1, -1, -1, 1]
+				}
 
 				// fill in
 				for (let i = 0; i <= 3; i++) {
 					const a = applyMatrixToPoint(matrix, [
-						XY[0][i] * halfWidth,
-						XY[1][i] * halfHeight
+						XY.x[i] * halfWidth,
+						XY.y[i] * halfHeight
 					])
-					XY[0][i] = a[0]
-					XY[1][i] = a[1]
+					XY.x[i] = a[0]
+					XY.y[i] = a[1]
 				}
 
-				XY[0].sort((a, b) => a - b)
-				XY[1].sort((a, b) => a - b)
+				XY.x.sort((a, b) => a - b)
+				XY.y.sort((a, b) => a - b)
 
-				rez.x.push(XY[0][0])
-				rez.y.push(XY[1][0])
-				rez.x2.push(XY[0][3])
-				rez.y2.push(XY[1][3])
+				rez.x.push(XY.x[0])
+				rez.y.push(XY.y[0])
+				rez.x2.push(XY.x[3])
+				rez.y2.push(XY.y[3])
 
 				return rez
 			},
