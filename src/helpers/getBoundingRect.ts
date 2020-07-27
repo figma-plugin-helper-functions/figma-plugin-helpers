@@ -1,3 +1,5 @@
+import { applyMatrixToPoint } from './applyMatrixToPoint'
+
 /**
  *  this function return a bounding rect for an nodes
  */
@@ -14,63 +16,41 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 		width: 0
 	}
 
-	// to assemble coordinates
-	function pushXY(x, y, w, h, rez) {
-		rez.x.push(x)
-		rez.y.push(y)
-		rez.x2.push(x + w)
-		rez.y2.push(y + h)
-	}
-
 	if (nodes.length > 0) {
 		const xy = nodes.reduce(
 			(rez, node) => {
-				let [[, , x], [, , y]] = node.absoluteTransform
-				const height = node.height
-				const width = node.width
+				const halfHeight = node.height / 2
+				const halfWidth = node.width / 2
 
-				if (Math.abs(node.rotation) === 0) {
-					pushXY(x, y, width, height, rez)
-				} else {
-					let r = node.rotation % 180
-					const reversed = r > 90 || r < -90
+				const [[c0, s0, x], [s1, c1, y]] = node.absoluteTransform
+				const matrix = [
+					[c0, s0, x + halfWidth * c0 + halfHeight * s0],
+					[s1, c1, y + halfWidth * s1 + halfHeight * c1]
+				]
 
-					if (reversed) {
-						r = r + 180 * -Math.sign(r)
-					} else {
-						r = -r
-					}
-
-					const a = (r * Math.PI) / 180
-					const s = Math.sin(a)
-					const c = Math.cos(a)
-
-					const w = Math.abs(height * s) + Math.abs(width * c)
-					const h = Math.abs(height * c) + Math.abs(width * s)
-
-					if (a < 0) {
-						if (reversed) {
-							y = y - h
-							x = x - width * c
-						} else {
-							y = y + width * s
-						}
-					} else if (a > 0) {
-						if (reversed) {
-							y = y - height * c
-							x = x - w
-						} else {
-							x = x - height * s
-						}
-					} else if (a == 0) {
-						if (Math.abs(node.rotation) === 180) {
-							y = y - h
-							x = x - w
-						}
-					}
-
-					pushXY(x, y, w, h, rez)
+				// the coordinates of the corners of the rectangle
+				const XY = {
+					x: [1, -1, 1, -1],
+					y: [1, -1, -1, 1]
 				}
+
+				// fill in
+				for (let i = 0; i <= 3; i++) {
+					const a = applyMatrixToPoint(matrix, [
+						XY.x[i] * halfWidth,
+						XY.y[i] * halfHeight
+					])
+					XY.x[i] = a[0]
+					XY.y[i] = a[1]
+				}
+
+				XY.x.sort((a, b) => a - b)
+				XY.y.sort((a, b) => a - b)
+
+				rez.x.push(XY.x[0])
+				rez.y.push(XY.y[0])
+				rez.x2.push(XY.x[3])
+				rez.y2.push(XY.y[3])
 
 				return rez
 			},
