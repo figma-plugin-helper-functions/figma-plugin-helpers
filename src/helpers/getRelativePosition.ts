@@ -24,12 +24,12 @@ export const getTopLevelParent = (node: BaseNode): BaseNode => {
  * // for structure below
  * // Page / Frame / Group1 / Group2 / Text
  *
- * getRealtivePosition(Text, Group1) // will calculate { x, y } based on Group1
+ * getRelativePosition(Text, Group1) // will calculate { x, y } based on Group1
  *
- * getRealtivePosition(Text) // will calculate { x, y } based on Frame
+ * getRelativePosition(Text) // will calculate { x, y } based on Frame
  * ```
  **/
-export const getRealtivePosition = (
+export const getRelativePosition = (
 	node: BaseNode & LayoutMixin,
 	relativeNode?: BaseNode & LayoutMixin
 ) => {
