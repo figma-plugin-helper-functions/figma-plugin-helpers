@@ -8,7 +8,7 @@ declare module 'matrix-inverse' {
 	export = fn
 }
 
-interface LetteStyle {
+interface LetterStyle {
 	characters: string
 	fontSize?: number
 	fontName?: FontName
@@ -20,6 +20,7 @@ interface LetteStyle {
 	textStyleId?: string
 	fillStyleId?: string
 }
+type LineStyle = LetterStyle[]
 
 type FontStyleNames =
 	| 'fontSize'

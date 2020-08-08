@@ -9,7 +9,9 @@ const styleFonts: FontStyleNames[] = [
 	'textDecoration',
 	'letterSpacing',
 	'lineHeight',
-	'fills'
+	'fills',
+	'textStyleId',
+	'fillStyleId'
 ]
 
 /*
@@ -36,7 +38,7 @@ function parseTextStyle(
 	start = 0,
 	end?: number,
 	styleName?: FontStyleNames[]
-): LetteStyle[] {
+): LetterStyle[] {
 	if (!end) end = node.characters.length
 	if (!styleName) styleName = styleFonts
 
@@ -49,7 +51,7 @@ function parseTextStyle(
 	const styleMap = []
 
 	// a composing string of a specific style
-	let textStyle: LetteStyle
+	let textStyle: LetterStyle
 
 	const names = styleName.map((name) => {
 		return name.replace(/^(.)/g, ($1) => $1.toUpperCase())
@@ -95,16 +97,16 @@ function parseTextStyle(
 */
 
 function splitTextStyleIntoLines(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	removeNewlineCharacters = false,
 	removeEmptylines = false
 ) {
-	let lines: LetteStyle[][] = []
-	let line: LetteStyle[] = []
-	const re = new RegExp('(\n|\u2028)|(.+)(\n|\u2028)?', 'g')
+	let line: LineStyle = []
+	let lines: LineStyle[] = []
+	const re = new RegExp('(.+|(?<=\n)(.?)(?=$))(\n|\u2028)?|(\n|\u2028)', 'g')
 	const re2 = new RegExp('\n|\u2028')
 
-	textStyle.forEach((style) => {
+	textStyle.forEach((style, index) => {
 		if (re2.test(style.characters)) {
 			const ls = style.characters.match(re)
 
@@ -138,15 +140,16 @@ function splitTextStyleIntoLines(
 					})
 				)
 
-				if (re2.test(last)) {
-					// last line final
-					style = cloneDeep(style)
-					style.characters = last
-					lines.push([style])
+				style = cloneDeep(style)
+				style.characters = last
+
+				if (last === '') {
+					if (!textStyle[index + 1]) {
+						// last line final
+						lines.push([style])
+					} // else false end of text
 				} else {
 					// does not end
-					style = cloneDeep(style)
-					style.characters = last
 					line.push(style)
 				}
 			}
@@ -160,9 +163,8 @@ function splitTextStyleIntoLines(
 	// deleting newline characters
 	if (removeNewlineCharacters) {
 		lines.forEach((l) => {
-			l.forEach((style) => {
-				style.characters = style.characters.replace(re2, '')
-			})
+			const style = l[l.length - 1]
+			style.characters = style.characters.replace(re2, '')
 		})
 	}
 
@@ -181,19 +183,33 @@ function splitTextStyleIntoLines(
 	The addNewlineCharacters parameter is responsible for whether you need to add a newline character at the end of each line
 */
 
-function joinTextLinesStyles(textStyle: LetteStyle[][], addNewlineCharacters = false) {
-	textStyle = cloneDeep(textStyle)
+function joinTextLinesStyles(
+	textStyle: LineStyle[],
+	addNewlineCharacters: boolean | '\n' | '\u2028' = false
+) {
+	const tStyle = cloneDeep(textStyle)
+	let newline = ''
+
+	switch (typeof addNewlineCharacters) {
+		case 'boolean':
+			if (addNewlineCharacters) newline = '\n'
+			break
+
+		case 'string':
+			newline = addNewlineCharacters
+			break
+	}
 
 	// adding new line characters
-	if (addNewlineCharacters) {
-		textStyle.forEach((style, i) => {
-			if (i !== textStyle.length - 1) style[style.length - 1].characters += '\n'
+	if (addNewlineCharacters && newline) {
+		tStyle.forEach((style, i) => {
+			if (i !== tStyle.length - 1) style[style.length - 1].characters += newline
 		})
 	}
 
 	// join
-	const line = textStyle.shift()
-	textStyle.forEach((style) => {
+	const line = tStyle.shift()
+	tStyle.forEach((style) => {
 		const fitst = style.shift()
 
 		if (isEqualLetterStyle(fitst, line[line.length - 1])) {
@@ -214,35 +230,40 @@ function joinTextLinesStyles(textStyle: LetteStyle[][], addNewlineCharacters = f
 	The second parameter can be passed a text node, the text of which will be changed.
 */
 
-async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: TextNode) {
-	let fonts = [
-		{
-			family: 'Roboto',
-			style: 'Regular'
+async function applyTextStyleToTextNode(
+	textStyle: LetterStyle[],
+	textNode?: TextNode,
+	isLoadFonts = true
+) {
+	if (isLoadFonts) {
+		let fonts = [
+			{
+				family: 'Roboto',
+				style: 'Regular'
+			}
+		]
+
+		if (textStyle[0].fontName) {
+			fonts.push(...textStyle.map((e) => e.fontName))
 		}
-	]
 
-	if (textStyle[0].fontName) {
-		fonts.push(...textStyle.map((e) => e.fontName))
-	}
+		if (textNode) {
+			fonts.push(...getAllFonts([textNode]))
+		}
 
-	if (textNode) {
-		fonts.push(...getAllFonts([textNode]))
-	}
-
-	fonts = uniqWith(fonts, isEqual)
-
-	try {
+		fonts = uniqWith(fonts, isEqual)
 		await loadFonts(fonts)
+	}
 
-		if (!textNode) textNode = await figma.createText()
-		textNode.characters = textStyle.reduce((str, style) => {
-			return str + style.characters
-		}, '')
+	if (!textNode) textNode = figma.createText()
+	textNode.characters = textStyle.reduce((str, style) => {
+		return str + style.characters
+	}, '')
 
-		let n = 0
-		textStyle.forEach((style) => {
-			const L = style.characters.length
+	let n = 0
+	textStyle.forEach((style) => {
+		const L = style.characters.length
+		if (L) {
 			for (const key in style) {
 				if (key !== 'characters') {
 					const name = key.replace(/^(.)/g, ($1) => $1.toUpperCase())
@@ -250,10 +271,8 @@ async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: Text
 				}
 			}
 			n += L
-		})
-	} catch (e) {
-		console.log(e)
-	}
+		}
+	})
 
 	return textNode
 }
@@ -264,7 +283,7 @@ async function applyTextStyleToTextNode(textStyle: LetteStyle[], textNode?: Text
 	If the passed text is longer than the styles, the overflow text will get the style of the last character.
 */
 
-function changeCharactersTextStyle(textStyle: LetteStyle[], characters: string) {
+function changeCharactersTextStyle(textStyle: LetterStyle[], characters: string) {
 	textStyle = cloneDeep(textStyle)
 
 	let n = 0
@@ -296,55 +315,55 @@ function changeCharactersTextStyle(textStyle: LetteStyle[], characters: string) 
 */
 
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'fontSize',
 	newValue: number,
 	beforeValue?: number
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'fontName',
 	newValue: FontName,
 	beforeValue?: FontName
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'textCase',
 	newValue: TextCase,
 	beforeValue?: TextCase
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'textDecoration',
 	newValue: TextDecoration,
 	beforeValue?: TextDecoration
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'letterSpacing',
 	newValue: LetterSpacing,
 	beforeValue?: LetterSpacing
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'lineHeight',
 	newValue: LineHeight,
 	beforeValue?: LineHeight
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'fills',
 	newValue: Paint[],
 	beforeValue?: Paint[]
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: 'textStyleId' | 'fillStyleId',
 	newValue: string,
 	beforeValue?: string
 )
 function changeTextStyle(
-	textStyle: LetteStyle[],
+	textStyle: LetterStyle[],
 	styleName: FontStyleNames,
 	newValue: any,
 	beforeValue?: any
@@ -364,7 +383,7 @@ function changeTextStyle(
 }
 
 /*comparing character styles to the styles of the composing substring*/
-function isEqualLetterStyle(letter: LetteStyle, textStyle: LetteStyle): boolean {
+function isEqualLetterStyle(letter: LetterStyle, textStyle: LetterStyle): boolean {
 	let is = true
 
 	// iterating over font properties
