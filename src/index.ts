@@ -14,7 +14,7 @@ import { nodeToObject } from './helpers/nodeToObject'
 import topLevelFrames from './helpers/topLevelFrames'
 import { getTextNodeCSS } from './helpers/getCSSStyles'
 import { findAll } from './helpers/findMethods'
-import { getRealtivePosition, getTopLevelParent } from './helpers/getRealtivePosition'
+import { getRelativePosition, getTopLevelParent } from './helpers/getRelativePosition'
 import {
 	figmaRGBToWebRGB,
 	webRGBToFigmaRGB,
@@ -69,7 +69,7 @@ export {
 	webRGBToFigmaRGB,
 	figmaRGBToHex,
 	hexToFigmaRGB,
-	getRealtivePosition,
+	getRelativePosition,
 	getTopLevelParent,
 	hasChildren,
 	findAll,
