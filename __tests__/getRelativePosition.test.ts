@@ -1,6 +1,6 @@
 import { set } from 'lodash'
 import { createFigma } from 'figma-api-stub'
-import { getRealtivePosition } from '../src'
+import { getRelativePosition } from '../src'
 
 const GAP = 50
 const X = 'absoluteTransform[0][2]'
@@ -20,7 +20,7 @@ frameNode2.appendChild(frameNode3)
 frameNode1.appendChild(frameNode2)
 pageNode.appendChild(frameNode1)
 
-describe('getRealtivePosition', () => {
+describe('getRelativePosition', () => {
 	beforeEach(() => {
 		set(frameNode1, X, 0)
 		set(frameNode1, Y, 0)
@@ -39,7 +39,7 @@ describe('getRealtivePosition', () => {
 	})
 
 	test('calculations for zero values', () => {
-		expect(getRealtivePosition(textNode)).toEqual({ x: 0, y: 0 })
+		expect(getRelativePosition(textNode)).toEqual({ x: 0, y: 0 })
 	})
 	test('ignore positions of nodes between targets', () => {
 		set(frameNode2, X, GAP * 100)
@@ -50,14 +50,14 @@ describe('getRealtivePosition', () => {
 		set(frameNode3, Y, GAP * 50)
 		set(frameNode4, Y, GAP * 25)
 		set(textNode, Y, GAP * 2)
-		expect(getRealtivePosition(textNode)).toEqual({ x: GAP, y: GAP * 2 })
+		expect(getRelativePosition(textNode)).toEqual({ x: GAP, y: GAP * 2 })
 	})
 	test('calculations should ignore top level node position', () => {
 		set(frameNode1, X, GAP)
 		set(textNode, X, GAP * 3)
 		set(frameNode1, Y, GAP)
 		set(textNode, Y, GAP * 6)
-		expect(getRealtivePosition(textNode)).toEqual({ x: GAP * 3 - GAP, y: GAP * 6 - GAP })
+		expect(getRelativePosition(textNode)).toEqual({ x: GAP * 3 - GAP, y: GAP * 6 - GAP })
 	})
 	test('calculations with provided parent', () => {
 		set(frameNode2, X, GAP * 100)
@@ -68,7 +68,7 @@ describe('getRealtivePosition', () => {
 		set(frameNode3, Y, GAP * 50)
 		set(frameNode4, Y, GAP * 25)
 		set(textNode, Y, GAP * 2)
-		expect(getRealtivePosition(textNode, frameNode3)).toEqual({
+		expect(getRelativePosition(textNode, frameNode3)).toEqual({
 			x: GAP * 50 - GAP,
 			y: GAP * 50 - GAP * 2
 		})
