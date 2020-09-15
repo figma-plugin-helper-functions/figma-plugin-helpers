@@ -1,20 +1,20 @@
 
-# Module: "getRealtivePosition"
+# Module: "getRelativePosition"
 
 ## Index
 
 ### Functions
 
-* [getRealtivePosition](_getrealtiveposition_.md#const-getrealtiveposition)
-* [getTopLevelParent](_getrealtiveposition_.md#const-gettoplevelparent)
+* [getRelativePosition](_getrelativeposition_.md#const-getrelativeposition)
+* [getTopLevelParent](_getrelativeposition_.md#const-gettoplevelparent)
 
 ## Functions
 
-### `Const` getRealtivePosition
+### `Const` getRelativePosition
 
-▸ **getRealtivePosition**(`node`: BaseNode & LayoutMixin, `relativeNode?`: BaseNode & LayoutMixin): *object*
+▸ **getRelativePosition**(`node`: BaseNode & LayoutMixin, `relativeNode?`: BaseNode & LayoutMixin): *object*
 
-*Defined in [getRealtivePosition.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/0fbf45c/src/helpers/getRealtivePosition.ts#L32)*
+*Defined in [getRelativePosition.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/getRelativePosition.ts#L32)*
 
 Calculate relative position of node based on provided parent or top level parent.
 For example:
@@ -22,9 +22,9 @@ For example:
 // for structure below
 // Page / Frame / Group1 / Group2 / Text
 
-getRealtivePosition(Text, Group1) // will calculate { x, y } based on Group1
+getRelativePosition(Text, Group1) // will calculate { x, y } based on Group1
 
-getRealtivePosition(Text) // will calculate { x, y } based on Frame
+getRelativePosition(Text) // will calculate { x, y } based on Frame
 ```
 
 **Parameters:**
@@ -48,7 +48,7 @@ ___
 
 ▸ **getTopLevelParent**(`node`: BaseNode): *BaseNode*
 
-*Defined in [getRealtivePosition.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/0fbf45c/src/helpers/getRealtivePosition.ts#L12)*
+*Defined in [getRelativePosition.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/getRelativePosition.ts#L12)*
 
 Return top level parent for node before PageNode.
 For example:

@@ -13,7 +13,7 @@
 
 ▸ **setCharacters**(`node`: TextNode, `characters`: string, `fallbackFont?`: FontName): *Promise‹boolean›*
 
-*Defined in [setCharacters.ts:22](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/0fbf45c/src/helpers/setCharacters.ts#L22)*
+*Defined in [setCharacters.ts:22](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/setCharacters.ts#L22)*
 
 This helper will check font and set fallback before set characters to node. Useful to work with TextNode content changes.
 For example:
