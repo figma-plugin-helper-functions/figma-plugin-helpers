@@ -5,8 +5,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"babel": "npx babel src --extensions \".ts\" --out-dir dist && tsc --build tsconfig.build.json",
-		"build": "tsc --build tsconfig.build.json",
+		"build": "npx babel src --extensions \".ts\" --out-dir dist && tsc --build tsconfig.build.json",
 		"lint": "eslint \"src/**/*.{js,ts,tsx}\"",
 		"lint:fix": "eslint \"src/**/*.{js,ts,tsx}\" --quiet --fix",
 		"test": "jest",
@@ -38,7 +37,6 @@
 		"@types/lodash": "^4.14.150",
 		"@typescript-eslint/eslint-plugin": "^2.29.0",
 		"@typescript-eslint/parser": "^2.29.0",
-		"babel-cli": "^6.26.0",
 		"babel-jest": "^25.4.0",
 		"babel-plugin-lodash": "^3.3.4",
 		"eslint": "^6.8.0",
