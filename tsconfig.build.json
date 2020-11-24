@@ -5,6 +5,8 @@
 		"outDir": "./dist",
 		"declaration": true,
 		"moduleResolution": "node",
+		"emitDeclarationOnly": true,
+		"isolatedModules": true,
 		"esModuleInterop": true,
 		"typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
 	},
