@@ -1,6 +1,13 @@
 src/
 node_modules/
 .vscode/
+__tests__/
+docs/
+.github/
+generate-docs.js
+babel.config.js
+typedoc.json
+tsconfig.build.json
 .travis.yml
 .prettierrc
 .eslintrc
