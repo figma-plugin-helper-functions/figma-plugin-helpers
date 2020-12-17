@@ -1,5 +1,6 @@
 //import all helper functions here
 import clone from './helpers/clone'
+import copyPasteProps from './helpers/copyPasteProps'
 import getAllFonts from './helpers/getAllFonts'
 import getBoundingRect from './helpers/getBoundingRect'
 import getNodeIndex from './helpers/getNodeIndex'
@@ -62,6 +63,7 @@ export {
 	isVisibleNode,
 	isOneOfNodeType,
 	clone,
+	copyPasteProps,
 	getBoundingRect,
 	nodeToObject,
 	getTextNodeCSS,
