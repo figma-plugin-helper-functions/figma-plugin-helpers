@@ -15,7 +15,7 @@ describe('copyPasteNode', () => {
 			strokes: 0,
 			backgrounds: []
 		}
-		expect(copyPasteProps({ source, target })).toEqual({
+		expect(copyPasteProps(source, target)).toEqual({
 			fills: 0,
 			fillStyleId: 'soaowlqla',
 			strokes: 1,
@@ -36,7 +36,7 @@ describe('copyPasteNode', () => {
 			strokes: 0,
 			backgrounds: []
 		}
-		expect(copyPasteProps({ source, target, exclude: ['strokes'] })).toEqual({
+		expect(copyPasteProps(source, target, { exclude: ['strokes'] })).toEqual({
 			fills: 0,
 			fillStyleId: 'soaowlqla',
 			strokes: 0,
@@ -57,7 +57,7 @@ describe('copyPasteNode', () => {
 			strokes: 0,
 			backgrounds: []
 		}
-		expect(copyPasteProps({ source, target, include: ['strokes'] })).toEqual({
+		expect(copyPasteProps(source, target, { include: ['strokes'] })).toEqual({
 			fills: 0,
 			fillStyleId: '',
 			strokes: 1,

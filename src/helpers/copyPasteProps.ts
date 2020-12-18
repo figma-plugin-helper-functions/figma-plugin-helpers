@@ -17,13 +17,6 @@
  * @param exclude - Props that shouldn't be copied
  */
 
-interface Arguments {
-	source: {}
-	target?: {}
-	include?: string[]
-	exclude?: string[]
-}
-
 const nodeProps: string[] = [
 	'id',
 	'parent',
@@ -112,7 +105,7 @@ const readonly: string[] = [
 	'type'
 ]
 
-export default function copyPasteProps({ source, target, include, exclude }: Arguments) {
+export default function copyPasteProps(source, target?, { include, exclude }: any = {}) {
 	let allowlist: string[] = nodeProps
 
 	if (include) {
@@ -147,19 +140,12 @@ export default function copyPasteProps({ source, target, include, exclude }: Arg
 					for (const key2 in target) {
 						if (allowlist.includes(key2)) {
 							if (key1 === key2) {
-								o[key1] = copyPasteProps({
-									source: val[key1],
-									target,
-									include,
-									exclude
-								})
+								o[key1] = copyPasteProps(val[key1])
 							}
 						}
 					}
 				} else {
-					if (allowlist.includes(key1)) {
-						o[key1] = copyPasteProps({ source: val[key1], include, exclude })
-					}
+					o[key1] = copyPasteProps(val[key1])
 				}
 			}
 
@@ -167,9 +153,11 @@ export default function copyPasteProps({ source, target, include, exclude }: Arg
 				!o.fillStyleId && o.fills ? null : delete o.fills
 				!o.strokeStyleId && o.strokes ? null : delete o.strokes
 				!o.backgroundStyleId && o.backgrounds ? null : delete o.backgrounds
-			}
 
-			return target ? Object.assign(target, o) : o
+				return target ? Object.assign(target, o) : o
+			} else {
+				return o
+			}
 		}
 	}
 
