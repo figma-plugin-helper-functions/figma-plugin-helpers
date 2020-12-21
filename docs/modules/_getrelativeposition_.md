@@ -14,7 +14,7 @@
 
 ▸ **getRelativePosition**(`node`: BaseNode & LayoutMixin, `relativeNode?`: BaseNode & LayoutMixin): *object*
 
-*Defined in [getRelativePosition.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a9a479/src/helpers/getRelativePosition.ts#L32)*
+*Defined in [getRelativePosition.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/getRelativePosition.ts#L32)*
 
 Calculate relative position of node based on provided parent or top level parent.
 For example:
@@ -48,7 +48,7 @@ ___
 
 ▸ **getTopLevelParent**(`node`: BaseNode): *BaseNode*
 
-*Defined in [getRelativePosition.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a9a479/src/helpers/getRelativePosition.ts#L12)*
+*Defined in [getRelativePosition.ts:12](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/getRelativePosition.ts#L12)*
 
 Return top level parent for node before PageNode.
 For example:
