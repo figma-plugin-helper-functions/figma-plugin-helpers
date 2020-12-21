@@ -5,15 +5,15 @@
 
 ### Functions
 
-* [setCharactersCustom](_setcharacters_.md#const-setcharacterscustom)
+* [setCharacters](_setcharacters_.md#const-setcharacters)
 
 ## Functions
 
-### `Const` setCharactersCustom
+### `Const` setCharacters
 
-▸ **setCharactersCustom**(`node`: TextNode, `characters`: string, `options?`: object): *Promise‹boolean›*
+▸ **setCharacters**(`node`: TextNode, `characters`: string, `options?`: object): *Promise‹boolean›*
 
-*Defined in [setCharacters.ts:33](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a9a479/src/helpers/setCharacters.ts#L33)*
+*Defined in [setCharacters.ts:33](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/setCharacters.ts#L33)*
 
 **Parameters:**
 
