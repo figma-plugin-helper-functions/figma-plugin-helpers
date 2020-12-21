@@ -13,7 +13,7 @@
 
 ▸ **findAll**(`nodes`: Children, `iteratee`: function): *any[]*
 
-*Defined in [findMethods.ts:22](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/findMethods.ts#L22)*
+*Defined in [findMethods.ts:22](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/1a9a479/src/helpers/findMethods.ts#L22)*
 
 Custom implementation of the figma.findAll method, which runs x1000 times faster.
 
