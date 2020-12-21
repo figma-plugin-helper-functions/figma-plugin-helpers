@@ -30,7 +30,7 @@ interface FontLinearItem {
 	delimiter: '\n' | ' '
 }
 
-export const setCharactersCustom = async (
+export const setCharacters = async (
 	node: TextNode,
 	characters: string,
 	options?: {
