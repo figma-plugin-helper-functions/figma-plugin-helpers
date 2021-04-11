@@ -13,7 +13,7 @@
 
 ▸ **setCharacters**(`node`: TextNode, `characters`: string, `options?`: object): *Promise‹boolean›*
 
-*Defined in [setCharacters.ts:33](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/setCharacters.ts#L33)*
+*Defined in [setCharacters.ts:33](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/5f3a767/src/helpers/setCharacters.ts#L33)*
 
 **Parameters:**
 
