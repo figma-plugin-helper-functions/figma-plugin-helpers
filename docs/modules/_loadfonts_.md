@@ -13,7 +13,7 @@
 
 ▸ **loadFonts**(`fonts`: Array‹FontName›): *Promise‹FontName[]›*
 
-*Defined in [loadFonts.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/loadFonts.ts#L4)*
+*Defined in [loadFonts.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/5f3a767/src/helpers/loadFonts.ts#L4)*
 
 this function asynchronously loads the passed fonts
 

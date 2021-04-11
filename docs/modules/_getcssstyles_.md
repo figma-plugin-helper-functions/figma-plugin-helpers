@@ -13,7 +13,7 @@
 
 ▸ **getTextNodeCSS**(`node`: TextNode): *object*
 
-*Defined in [getCSSStyles.ts:60](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/getCSSStyles.ts#L60)*
+*Defined in [getCSSStyles.ts:60](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/5f3a767/src/helpers/getCSSStyles.ts#L60)*
 
  get CSS styles of TextNode
 
