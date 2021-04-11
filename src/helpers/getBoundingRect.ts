@@ -1,3 +1,4 @@
+import { isUndefined } from 'lodash'
 import { applyMatrixToPoint } from './applyMatrixToPoint'
 
 /**
@@ -16,9 +17,21 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 		width: 0
 	}
 
-	if (nodes.length > 0) {
+	if (nodes.length) {
 		const xy = nodes.reduce(
 			(rez, node) => {
+				if (!node.absoluteTransform) {
+					console.warn(
+						'Provided node haven\'t "absoluteTransform" property, but it\'s required for calculations.'
+					)
+					return rez
+				}
+				if (isUndefined(node.height) || isUndefined(node.width)) {
+					console.warn(
+						'Provided node haven\'t "width/height" property, but it\'s required for calculations.'
+					)
+					return rez
+				}
 				const halfHeight = node.height / 2
 				const halfWidth = node.width / 2
 
@@ -51,7 +64,6 @@ export default function getBoundingRect(nodes: SceneNode[]) {
 				rez.y.push(XY.y[0])
 				rez.x2.push(XY.x[3])
 				rez.y2.push(XY.y[3])
-
 				return rez
 			},
 			{ x: [], y: [], x2: [], y2: [] }
