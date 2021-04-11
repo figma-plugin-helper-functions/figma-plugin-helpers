@@ -19,7 +19,7 @@
 
 ▸ **isComponentNode**(`node`: BaseNode): *node is ComponentNode*
 
-*Defined in [isTypeNode.ts:39](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L39)*
+*Defined in [isTypeNode.ts:39](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L39)*
 
 Checks node to be ComponentNode
 
@@ -37,7 +37,7 @@ ___
 
 ▸ **isFrameNode**(`node`: BaseNode): *node is FrameNode*
 
-*Defined in [isTypeNode.ts:18](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L18)*
+*Defined in [isTypeNode.ts:18](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L18)*
 
 Checks node to be FrameNode
 
@@ -55,7 +55,7 @@ ___
 
 ▸ **isGroupNode**(`node`: BaseNode): *node is GroupNode*
 
-*Defined in [isTypeNode.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L11)*
+*Defined in [isTypeNode.ts:11](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L11)*
 
 Checks node to be GroupNode
 
@@ -73,7 +73,7 @@ ___
 
 ▸ **isInstanceNode**(`node`: BaseNode): *node is InstanceNode*
 
-*Defined in [isTypeNode.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L32)*
+*Defined in [isTypeNode.ts:32](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L32)*
 
 Checks node to be InstanceNode
 
@@ -91,7 +91,7 @@ ___
 
 ▸ **isOneOfNodeType**(`node`: BaseNode, `typeList`: NodeType[]): *boolean*
 
-*Defined in [isTypeNode.ts:46](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L46)*
+*Defined in [isTypeNode.ts:46](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L46)*
 
 Checks node to be one of provided types
 
@@ -110,7 +110,7 @@ ___
 
 ▸ **isPageNode**(`node`: BaseNode): *node is PageNode*
 
-*Defined in [isTypeNode.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L4)*
+*Defined in [isTypeNode.ts:4](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L4)*
 
 Checks node to be PageNode
 
@@ -128,7 +128,7 @@ ___
 
 ▸ **isTextNode**(`node`: BaseNode): *node is TextNode*
 
-*Defined in [isTypeNode.ts:25](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/7c4bed4/src/helpers/isTypeNode.ts#L25)*
+*Defined in [isTypeNode.ts:25](https://github.com/figma-plugin-helper-functions/figma-plugin-helpers/blob/66648a3/src/helpers/isTypeNode.ts#L25)*
 
 Checks node to be TextNode
 
