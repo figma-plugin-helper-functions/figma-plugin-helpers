@@ -13,7 +13,7 @@
  */
 export const nodeToObject = (node: any, withoutRelations?: boolean) => {
 	const props = Object.entries(Object.getOwnPropertyDescriptors(node.__proto__))
-	const blacklist = ['parent', 'children', 'removed', 'masterComponent']
+	const blacklist = ['parent', 'children', 'removed', 'mainComponent']
 	const obj: any = { id: node.id, type: node.type }
 	for (const [name, prop] of props) {
 		if (prop.get && !blacklist.includes(name)) {
