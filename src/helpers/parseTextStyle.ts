@@ -11,7 +11,8 @@ const styleFonts: FontStyleNames[] = [
 	'lineHeight',
 	'fills',
 	'textStyleId',
-	'fillStyleId'
+	'fillStyleId',
+	'hyperlink'
 ]
 
 /*
@@ -25,7 +26,7 @@ const styleFonts: FontStyleNames[] = [
 
 	Returns styles for the entire text:
 	parseTextStyle(textNode)
-	
+
 	Returns text styles from the 100th to the last character:
 	parseTextStyle(textNode, 100)
 
@@ -65,7 +66,13 @@ function parseTextStyle(
 
 		// collection of styles
 		names.forEach((n, i) => {
-			letter[styleName[i]] = node['getRange' + n](startIndex, endIndex)
+			const rangeStyleValue = node['getRange' + n](startIndex, endIndex)
+			if (
+				n.toLowerCase() !== 'hyperlink' ||
+				(rangeStyleValue && rangeStyleValue.constructor === Object)
+			) {
+				letter[styleName[i]] = rangeStyleValue
+			}
 		})
 
 		if (textStyle) {
@@ -310,7 +317,7 @@ function changeCharactersTextStyle(textStyle: LetterStyle[], characters: string)
 }
 
 /*
-	Function for changing properties of TextStyle. 
+	Function for changing properties of TextStyle.
 	The beforeValue parameter allows you to specify the value in which the property to be changed should be.
 */
 

@@ -32,3 +32,4 @@ type FontStyleNames =
 	| 'fills'
 	| 'textStyleId'
 	| 'fillStyleId'
+	| 'hyperlink'
