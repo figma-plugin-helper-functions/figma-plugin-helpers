@@ -1,4 +1,4 @@
-import { isUndefined } from 'lodash'
+import isUndefined from 'lodash.isundefined'
 import { applyMatrixToPoint } from './applyMatrixToPoint'
 
 /**

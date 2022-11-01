@@ -1,4 +1,4 @@
-import { set } from 'lodash'
+import set from 'lodash.set'
 import { createFigma } from 'figma-api-stub'
 import { getBoundingRect } from '../src'
 

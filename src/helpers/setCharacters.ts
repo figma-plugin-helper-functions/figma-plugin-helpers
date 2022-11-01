@@ -21,7 +21,7 @@
  * @param options.smartStrategy Parser stragtegy, that allows to set font family and styles to characters in more flexible way
  */
 
-import { uniqBy } from 'lodash'
+import uniqBy from 'lodash.uniqby'
 
 interface FontLinearItem {
 	family: string

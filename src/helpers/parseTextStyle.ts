@@ -1,4 +1,6 @@
-import { isEqual, cloneDeep, uniqWith } from 'lodash'
+import isEqual from 'lodash.isequal'
+import cloneDeep from 'lodash.clonedeep'
+import uniqWith from 'lodash.uniqwith'
 import getAllFonts from './getAllFonts'
 import loadFonts from './loadFonts'
 
