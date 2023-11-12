@@ -153,7 +153,7 @@ const getDelimiterPos = (
 const buildLinearOrder = (node: TextNode) => {
 	const fontTree: FontLinearItem[] = []
 	const newLinesPos = getDelimiterPos(node.characters, '\n')
-	newLinesPos.forEach(([newLinesRangeStart, newLinesRangeEnd], n) => {
+	newLinesPos.forEach(([newLinesRangeStart, newLinesRangeEnd]) => {
 		const newLinesRangeFont = node.getRangeFontName(newLinesRangeStart, newLinesRangeEnd)
 		if (newLinesRangeFont === figma.mixed) {
 			const spacesPos = getDelimiterPos(
@@ -162,7 +162,7 @@ const buildLinearOrder = (node: TextNode) => {
 				newLinesRangeStart,
 				newLinesRangeEnd
 			)
-			spacesPos.forEach(([spacesRangeStart, spacesRangeEnd], s) => {
+			spacesPos.forEach(([spacesRangeStart, spacesRangeEnd]) => {
 				const spacesRangeFont = node.getRangeFontName(spacesRangeStart, spacesRangeEnd)
 				if (spacesRangeFont === figma.mixed) {
 					const spacesRangeFont = node.getRangeFontName(

@@ -16,18 +16,21 @@ export function extractImageCropParams(shapeWidth: number, shapeHeight: number, 
 		[1, 0],
 		[1, 1],
 		[0, 1]
-	].map((p) => applyMatrixToPoint(mxInv, p))
+	].map((p) => {
+		const [x, y] = applyMatrixToPoint(mxInv, p)
+		return [x * shapeWidth, y * shapeWidth]
+	})
 	const angle = Math.atan2(points[1][1] - points[0][1], points[1][0] - points[0][0])
-	const sx = Math.sqrt(
+	const sizex = Math.sqrt(
 		Math.pow(points[1][0] - points[0][0], 2) + Math.pow(points[1][1] - points[0][1], 2)
 	)
-	const sy = Math.sqrt(
+	const sizey = Math.sqrt(
 		Math.pow(points[2][0] - points[1][0], 2) + Math.pow(points[2][1] - points[1][1], 2)
 	)
 	return {
 		rotation: angle * (180 / Math.PI),
-		scale: [sx, sy],
-		size: [sx * shapeWidth, sy * shapeHeight],
-		position: [-points[0][0] * shapeWidth, -points[0][1] * shapeHeight]
+		scale: [sizex / shapeWidth, sizey / shapeHeight],
+		size: [sizex, sizey],
+		position: [points[0][0], points[0][1]]
 	}
 }
