@@ -13,29 +13,43 @@
  */
 export const nodeToObject = (node: any, withoutRelations?: boolean) => {
 	const props = Object.entries(Object.getOwnPropertyDescriptors(node.__proto__))
-	const blacklist = ['parent', 'children', 'removed', 'masterComponent']
+	const blacklist = ['parent', 'children', 'removed']
 	const obj: any = { id: node.id, type: node.type }
 	for (const [name, prop] of props) {
 		if (prop.get && !blacklist.includes(name)) {
 			try {
 				if (typeof obj[name] === 'symbol') {
 					obj[name] = 'Mixed'
-				} else {
-					obj[name] = prop.get.call(node)
+				} 
+				else if (name === 'mainComponent' || name === 'masterComponent') {
+					let mainComponent = await node.getMainComponentAsync();
+					obj[name] = mainComponent.id;
+				}
+				else if (name === 'instances' || name === 'exposedInstances') {
+					let instances = await node.getInstancesAsync();
+					obj[name] = instances.map((instance: any) => instance.id);
+				}
+				else {
+					obj[name] = prop.get.call(node);
 				}
 			} catch (err) {
 				obj[name] = undefined
 			}
 		}
 	}
-	if (node.parent && !withoutRelations) {
+	if (node.parent) {
 		obj.parent = { id: node.parent.id, type: node.parent.type }
 	}
-	if (node.children && !withoutRelations) {
-		obj.children = node.children.map((child: any) => nodeToObject(child, withoutRelations))
+	if (node.children) {
+		obj.children = [];
+		for (const child of node.children) {
+			try {
+				obj.children.push(await nodeToObject(child, withoutRelations));
+			}
+			catch (err) {
+				console.log(err);
+			}
+		}
 	}
-	if (node.masterComponent && !withoutRelations) {
-		obj.masterComponent = nodeToObject(node.masterComponent, withoutRelations)
-	}
-	return obj
+	return obj;
 }
